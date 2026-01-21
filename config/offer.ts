@@ -24,7 +24,7 @@ export interface OfferConfig {
 
 export const offer: OfferConfig = {
   purchaseLink: "#", // Coloque o link do checkout aqui
-  whatsappLink: "https://wa.me/seunumeroaqui",
+  whatsappLink: "https://wa.me/5521975316141",
   priceBRL: "497,00",
   paymentMethods: "Pix ou Cartão de Crédito em até 12x",
   datesAndSpots: "Turma com início imediato • Vagas Limitadas",
