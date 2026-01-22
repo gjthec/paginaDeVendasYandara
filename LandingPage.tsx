@@ -11,7 +11,10 @@ import {
   Send,
   MessageCircle,
   AudioLines,
-  FileText
+  FileText,
+  TrendingDown,
+  ArrowRight,
+  Clock
 } from 'lucide-react';
 import Header from './components/Header';
 import CTAButton from './components/CTAButton';
@@ -33,11 +36,16 @@ const LandingPage: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-[#D9A08B]/10 text-[#D9A08B] px-4 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest mb-6 animate-bounce">
+            <Sparkles size={16} />
+            <span>Apenas R$ 49,50 por semana</span>
+          </div>
+          
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-800 leading-tight mb-6 md:mb-8 uppercase tracking-tight">
             Mapeamento <span className="italic font-light lowercase">do</span> Sentir
           </h1>
           <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto px-2">
-            Uma jornada guiada para te devolver clareza emocional, direção interna e leveza para começar um novo ciclo — mesmo quando seus dias estão cansativos ou instáveis.
+            Uma jornada guiada para te devolver clareza emocional, direção interna e leveza para começar um novo ciclo.
           </h2>
           <p className="text-base md:text-lg text-stone-500 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
             Organizar por dentro o que hoje parece caótico por fora, com prática, presença e um caminho simples de seguir.
@@ -45,25 +53,28 @@ const LandingPage: React.FC = () => {
 
           <div className="flex flex-col items-center gap-6 px-4">
             <CTAButton className="w-full sm:w-auto scale-105 md:scale-110" />
-            <a href={offer.whatsappLink} className="text-stone-500 hover:text-stone-800 transition-colors flex items-center justify-center gap-2 text-sm text-center">
-              <MessageCircle size={18} className="shrink-0" />
-              <span>Dúvidas? Fale comigo no WhatsApp</span>
-            </a>
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-stone-400 text-xs font-medium uppercase tracking-widest">Acesso total por 12 meses</p>
+              <a href={offer.whatsappLink} className="text-stone-500 hover:text-stone-800 transition-colors flex items-center justify-center gap-2 text-sm text-center">
+                <MessageCircle size={18} className="shrink-0" />
+                <span>Dúvidas? Fale comigo no WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Mini-box editable fields */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto border-t border-stone-100 pt-8 text-sm text-stone-400">
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0">
-              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Investimento</p>
-              <p className="text-stone-600 font-medium">R$ {formatValue(offer.priceBRL)}</p>
+            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
+              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Custo Semanal</p>
+              <p className="text-[#D9A08B] font-bold text-base">R$ 49,50</p>
             </div>
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0">
+            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
               <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Pagamento</p>
-              <p className="text-stone-600 font-medium">{formatValue(offer.paymentMethods)}</p>
+              <p className="text-stone-600 font-medium">Pix ou Cartão</p>
             </div>
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0">
-              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Próximas Datas</p>
-              <p className="text-stone-600 font-medium">{formatValue(offer.datesAndSpots)}</p>
+            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
+              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Acompanhamento</p>
+              <p className="text-stone-600 font-medium">Sessões Individuais</p>
             </div>
           </div>
         </div>
@@ -73,7 +84,7 @@ const LandingPage: React.FC = () => {
       <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#F8F7F4]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2">Este processo é para pessoas reais, ocupadas e humanas.</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center">Este processo é para pessoas reais, ocupadas e humanas.</h2>
             <p className="text-lg md:text-xl text-stone-600">Em especial para quem:</p>
           </div>
 
@@ -86,7 +97,7 @@ const LandingPage: React.FC = () => {
               "procrastina porque o corpo trava",
               "quer retomar o próprio eixo"
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white/50 p-4 rounded-xl md:bg-transparent md:p-0">
+              <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl border border-stone-100 shadow-sm md:shadow-none md:border-0 md:bg-transparent md:p-0">
                 <CheckCircle2 className="text-[#7A8C7A] shrink-0 mt-1" size={20} />
                 <p className="text-base md:text-lg text-stone-700 leading-snug">{item}</p>
               </div>
@@ -96,7 +107,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* 4 & 5. O QUE É / RECEBE */}
-      <section className="py-20 md:py-24 px-5">
+      <section id="como-funciona" className="py-20 md:py-24 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center mb-16 md:mb-24">
             <div>
@@ -114,7 +125,7 @@ const LandingPage: React.FC = () => {
                 {[
                   { icon: <Video size={20} className="text-[#D9A08B]" />, text: "4 módulos com videoaulas objetivas" },
                   { icon: <Sparkles size={20} className="text-[#D9A08B]" />, text: "Exercícios guiados de autorreflexão" },
-                  { icon: <Focus size={20} className="text-[#D9A08B]" />, text: "1 sessão individual por módulo" }
+                  { icon: <Focus size={20} className="text-[#D9A08B]" />, text: "4 sessões individuais (1 por módulo)" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 text-base md:text-lg text-stone-700">
                     <div className="p-2.5 md:p-3 bg-stone-50 rounded-xl md:rounded-2xl shrink-0">{item.icon}</div>
@@ -147,7 +158,7 @@ const LandingPage: React.FC = () => {
               description="Antes de tudo, organizamos o terreno. Entenda como a sobrecarga bagunça sua mente."
               bullets={["identificar gatilhos", "enxergar excessos", "filtrar o essencial"]}
               footerExercises="Mapeamento do caos e excessos."
-              footerSession="Estrutura possível para o agora."
+              footerSession="Sessão individual inclusa."
             />
             <ModuleCard 
               index={1}
@@ -155,7 +166,7 @@ const LandingPage: React.FC = () => {
               description="O desânimo não é um defeito, é um pedido de atenção. Aprenda a rastrear sua energia."
               bullets={["vazamentos de energia", "humor e sensibilidade", "autocuidado realista"]}
               footerExercises="Rastreamento de energia."
-              footerSession="Trabalhamos pontos emocionais profundos."
+              footerSession="Sessão individual inclusa."
             />
             <ModuleCard 
               index={2}
@@ -163,7 +174,7 @@ const LandingPage: React.FC = () => {
               description="Diferencie pausa necessária de fuga. Entenda o que seu corpo diz quando trava."
               bullets={["corpo que trava", "medo e comparação", "micro passos reais"]}
               footerExercises="Identificação de bloqueios."
-              footerSession="Ajustamos metas e tempo interno."
+              footerSession="Sessão individual inclusa."
             />
             <ModuleCard 
               index={3}
@@ -171,7 +182,7 @@ const LandingPage: React.FC = () => {
               description="Criar direção, não apenas metas. Planeje respeitando seu corpo e vida real."
               bullets={["semanas leves", "prioridades reais", "plano sustentável"]}
               footerExercises="Agenda afetiva e plano possível."
-              footerSession="Fechamento do mapa e próximo ciclo."
+              footerSession="Sessão individual inclusa."
             />
           </div>
         </div>
@@ -206,62 +217,92 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 12. BÔNUS */}
-      <section id="bonus" className="py-20 md:py-24 px-5">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-12 md:mb-16 text-center px-4">Além dos módulos, você ganha:</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { title: "Ritual de Aterramento", detail: "5 min (áudio)", icon: <AudioLines /> },
-              { title: "Higiene do Sono", detail: "PDF Prático", icon: <FileText /> },
-              { title: "Meditação Retorno", detail: "Áudio guiado", icon: <Sparkles /> },
-              { title: "Diário de Percepções", detail: "PDF Interativo", icon: <UserCircle2 /> }
-            ].map((bonus, i) => (
-              <div key={i} className="bg-stone-50 p-6 md:p-8 rounded-2xl md:rounded-3xl text-center border border-stone-100 flex flex-row sm:flex-col items-center gap-4 sm:gap-0">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-xl md:rounded-2xl shadow-sm flex items-center justify-center text-[#D9A08B] shrink-0 sm:mx-auto sm:mb-6">
-                  {bonus.icon}
-                </div>
-                <div className="text-left sm:text-center">
-                  <h4 className="text-lg font-bold text-stone-800 sm:mb-2">{bonus.title}</h4>
-                  <p className="text-stone-500 text-sm font-medium">{bonus.detail}</p>
-                </div>
-              </div>
-            ))}
+      {/* 13. INVESTIMENTO (DESTAQUE ABSOLUTO R$ 49,50) */}
+      <section id="investimento" className="py-20 md:py-32 px-5 bg-white relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-50/30 rounded-full blur-[120px] -z-10" />
+        
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6">Investimento Leve</h2>
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+              Organizar sua vida emocional não precisa custar uma fortuna. Criamos um modelo acessível para que ninguém fique de fora.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* 13. INVESTIMENTO */}
-      <section id="investimento" className="py-20 md:py-32 px-5">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-3xl md:rounded-[50px] shadow-xl overflow-hidden border border-stone-100 flex flex-col md:flex-row">
-            <div className="p-8 md:p-16 flex-1 bg-stone-50/50">
-              <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-6 md:mb-8 text-center md:text-left">Comece hoje sua jornada</h2>
-              <ul className="space-y-4 mb-10">
-                {["4 Módulos completos", "4 Sessões individuais", "Todos os bônus", "Acesso imediato"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-stone-600 font-medium text-sm md:text-base">
-                    <CheckCircle2 size={18} className="text-[#7A8C7A]" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex items-center gap-4 p-4 bg-[#7A8C7A]/5 rounded-2xl border border-[#7A8C7A]/10">
-                <ShieldCheck className="text-[#7A8C7A] shrink-0" size={24} />
-                <p className="text-stone-500 text-xs leading-relaxed">{formatValue(offer.guaranteePolicy)}</p>
+          <div className="max-w-4xl mx-auto relative">
+            {/* O Cartão de Preço Principal */}
+            <div className="bg-white rounded-3xl md:rounded-[50px] shadow-2xl overflow-hidden border-4 border-[#7A8C7A]/10 flex flex-col md:flex-row relative z-10">
+              
+              {/* Lado Esquerdo: Valor Perceptível */}
+              <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-[#7A8C7A] text-white">
+                <p className="text-emerald-100 uppercase tracking-widest text-[10px] md:text-xs font-bold mb-6 border-b border-white/20 pb-2">O seu custo semanal</p>
+                
+                <div className="mb-8">
+                  <div className="flex items-baseline justify-center gap-1 mb-1">
+                    <span className="text-2xl font-medium text-emerald-100 italic mr-1">R$</span>
+                    <span className="text-7xl md:text-8xl font-bold tracking-tighter">49,50</span>
+                  </div>
+                  <p className="text-emerald-50 text-base md:text-lg font-medium opacity-80">
+                    Por módulo / semana
+                  </p>
+                </div>
+
+                <div className="w-full p-4 bg-white/10 rounded-2xl flex items-center justify-center gap-3">
+                  <Clock size={20} className="text-emerald-200" />
+                  <p className="text-sm font-medium">Acompanhamento Individual Incluso</p>
+                </div>
+              </div>
+
+              {/* Lado Direito: Checkout e Detalhes */}
+              <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-white">
+                <div className="mb-10 text-left w-full space-y-4">
+                  <h3 className="text-xl font-bold text-stone-800">O que está garantido:</h3>
+                  <ul className="space-y-4">
+                    {[
+                      "4 Sessões individuais de 50min",
+                      "4 Módulos de conteúdo guiado",
+                      "Material de apoio e Bônus",
+                      "Suporte direto no WhatsApp"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-stone-600 font-medium">
+                        <CheckCircle2 size={18} className="text-[#7A8C7A] shrink-0" />
+                        <span className="text-sm md:text-base">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="w-full space-y-6">
+                  <div className="flex flex-col gap-1 border-t border-stone-100 pt-6">
+                    <p className="text-stone-400 text-[10px] uppercase font-bold tracking-widest">Valor Total do Pacote</p>
+                    <p className="text-2xl md:text-3xl font-bold text-stone-800 tracking-tight">R$ {formatValue(offer.priceBRL)}</p>
+                  </div>
+                  
+                  <CTAButton className="w-full py-5 text-lg shadow-xl" />
+                  
+                  <div className="flex flex-col gap-2">
+                    <p className="text-stone-500 text-xs font-medium">{formatValue(offer.paymentMethods)}</p>
+                    <div className="flex items-center justify-center gap-2 text-[#7A8C7A] text-xs font-bold">
+                      <ShieldCheck size={14} /> 
+                      <span>{formatValue(offer.guaranteePolicy)}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-white border-t md:border-t-0 md:border-l border-stone-100">
-              <p className="text-stone-400 uppercase tracking-widest text-[10px] font-bold mb-2">Investimento Total</p>
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-xl font-medium text-stone-400">R$</span>
-                <span className="text-5xl md:text-6xl font-bold text-stone-800">{formatValue(offer.priceBRL)}</span>
-              </div>
-              <p className="text-stone-500 text-sm md:text-base font-medium mb-10">
-                {formatValue(offer.paymentMethods)}
-              </p>
-              <CTAButton className="w-full py-4 text-base" />
+
+            {/* Floating Tag */}
+            <div className="absolute -top-6 -right-6 md:-right-12 bg-[#D9A08B] text-white px-6 py-3 rounded-2xl shadow-xl z-20 transform rotate-6 hidden md:block">
+              <p className="text-[10px] uppercase font-black tracking-tighter">Oportunidade</p>
+              <p className="text-xl font-bold">Vagas Limitadas</p>
             </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-stone-500 text-sm md:text-base italic px-4">
+              "Menos que o valor de uma pizza por semana para ter um especialista te ajudando a organizar sua vida emocional e prática."
+            </p>
           </div>
         </div>
       </section>

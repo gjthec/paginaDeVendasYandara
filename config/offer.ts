@@ -25,8 +25,8 @@ export interface OfferConfig {
 export const offer: OfferConfig = {
   purchaseLink: "#", // Coloque o link do checkout aqui
   whatsappLink: "https://wa.me/5521975316141",
-  priceBRL: "497,00",
-  paymentMethods: "Pix ou Cartão de Crédito em até 12x",
+  priceBRL: "198,00",
+  paymentMethods: "Pix ou Cartão de Crédito",
   datesAndSpots: "Turma com início imediato • Vagas Limitadas",
   guaranteePolicy: "7 dias de garantia incondicional",
   timePerWeekText: "Cerca de 60 a 90 minutos por semana, adaptáveis ao seu ritmo.",
