@@ -24,6 +24,14 @@ import FloatingCTA from './components/FloatingCTA';
 import { offer, formatValue } from './config/offer';
 
 const LandingPage: React.FC = () => {
+  const results = [
+    { label: "Clareza sobre prioridades", value: "91%" },
+    { label: "Consistência na rotina", value: "82%" },
+    { label: "Começar tarefas importantes", value: "79%" },
+    { label: "Confiança em si mesma", value: "81%" },
+    { label: "Culpa ao final do dia", value: "3%" },
+  ];
+
   return (
     <main className="min-h-screen pb-20 lg:pb-0">
       <Header />
@@ -44,7 +52,7 @@ const LandingPage: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-800 leading-tight mb-6 md:mb-8 uppercase tracking-tight">
             Mapeamento <span className="italic font-light lowercase">do</span> Sentir
           </h1>
-          <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto px-2">
+          <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto px-2 text-center">
             Uma jornada guiada para te devolver clareza emocional, direção interna e leveza para começar um novo ciclo.
           </h2>
           <p className="text-base md:text-lg text-stone-500 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
@@ -62,20 +70,35 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Mini-box editable fields */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto border-t border-stone-100 pt-8 text-sm text-stone-400">
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
-              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Custo Semanal</p>
-              <p className="text-[#D9A08B] font-bold text-base">R$ 49,50</p>
+          {/* NOVA SEÇÃO DE RESULTADOS (Substituindo os mini-boxes) */}
+          <div className="mt-20 max-w-2xl mx-auto bg-[#2D352D] p-6 md:p-10 rounded-[32px] md:rounded-[48px] shadow-2xl text-left border border-white/5 resultado-protocolo">
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-8 text-center md:text-left font-serif italic">
+              Depois do Mapeamento do Sentir:
+            </h3>
+            
+            <div className="space-y-6">
+              {results.map((res, i) => (
+                <div key={i} className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="bg-[#C3D9C3] text-[#2D352D] px-4 py-2 rounded-xl text-xs md:text-sm font-bold shadow-sm whitespace-nowrap">
+                      {res.label}
+                    </div>
+                    <span className="text-white font-bold text-sm md:text-base opacity-90">{res.value}</span>
+                  </div>
+                  <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-[#C3D9C3] rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: res.value }}
+                      aria-label={`Progresso de ${res.label}: ${res.value}`}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
-              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Pagamento</p>
-              <p className="text-stone-600 font-medium">Pix ou Cartão</p>
-            </div>
-            <div className="bg-stone-50/50 p-4 rounded-2xl md:bg-transparent md:p-0 border border-stone-100 md:border-0">
-              <p className="uppercase tracking-widest text-[10px] font-bold mb-1">Acompanhamento</p>
-              <p className="text-stone-600 font-medium">Sessões Individuais</p>
-            </div>
+            
+            <p className="mt-8 text-emerald-100/50 text-[10px] md:text-xs text-center uppercase tracking-widest font-medium">
+              Dados baseados em percepção de alunas após 4 semanas de acompanhamento
+            </p>
           </div>
         </div>
       </section>
@@ -85,7 +108,7 @@ const LandingPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center">Este processo é para pessoas reais, ocupadas e humanas.</h2>
-            <p className="text-lg md:text-xl text-stone-600">Em especial para quem:</p>
+            <p className="text-lg md:text-xl text-stone-600 text-center">Em especial para quem:</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">
@@ -137,10 +160,10 @@ const LandingPage: React.FC = () => {
           </div>
 
           <div className="bg-[#7A8C7A] rounded-3xl md:rounded-[40px] p-10 md:p-20 text-center text-white relative overflow-hidden">
-            <h3 className="text-xl md:text-4xl font-bold max-w-4xl mx-auto leading-relaxed relative z-10 font-serif italic font-normal">
+            <h3 className="text-xl md:text-4xl font-bold max-w-4xl mx-auto leading-relaxed relative z-10 font-serif italic font-normal text-center">
               “Você sai do emaranhado interno para um mapa claro do que te trava e do que te sustenta.”
             </h3>
-            <p className="mt-6 md:mt-8 text-emerald-50 text-base md:text-xl font-light">
+            <p className="mt-6 md:mt-8 text-emerald-50 text-base md:text-xl font-light text-center">
               Um plano possível para o seu próximo ciclo, alinhado ao seu ritmo real.
             </p>
           </div>
@@ -293,7 +316,7 @@ const LandingPage: React.FC = () => {
             </div>
 
             {/* Floating Tag */}
-            <div className="absolute -top-6 -right-6 md:-right-12 bg-[#D9A08B] text-white px-6 py-3 rounded-2xl shadow-xl z-20 transform rotate-6 hidden md:block">
+            <div className="absolute -top-6 -right-6 md:-right-12 bg-[#D9A08B] text-white px-6 py-3 rounded-2xl shadow-xl z-20 transform rotate-6 hidden md:block text-center">
               <p className="text-[10px] uppercase font-black tracking-tighter">Oportunidade</p>
               <p className="text-xl font-bold">Vagas Limitadas</p>
             </div>
@@ -309,13 +332,13 @@ const LandingPage: React.FC = () => {
 
       {/* 14. FINAL */}
       <section className="py-24 md:py-32 px-5 bg-[#7A8C7A] text-white text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2">Pronta para começar?</h2>
-          <p className="text-lg md:text-2xl text-emerald-50 mb-10 md:mb-12 leading-relaxed font-light px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2 text-center">Pronta para começar?</h2>
+          <p className="text-lg md:text-2xl text-emerald-50 mb-10 md:mb-12 leading-relaxed font-light px-4 text-center">
             Recuperar sua clareza interna é recuperar sua vida. Escolha com mais calma, firmeza e menos confusão.
           </p>
           <CTAButton variant="secondary" className="w-full sm:w-auto scale-105 md:scale-125 mb-8" />
-          <div className="mt-8">
+          <div className="mt-8 text-center">
             <a href={offer.whatsappLink} className="text-emerald-100 hover:text-white transition-colors underline underline-offset-8 text-base md:text-lg">
               Dúvidas? Fale no WhatsApp.
             </a>
@@ -323,10 +346,10 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <footer className="py-12 bg-white text-stone-400 text-center text-xs px-5 border-t border-stone-50">
-        <div className="max-w-7xl mx-auto flex flex-col gap-6">
-          <div className="font-serif font-bold text-stone-800 text-lg italic">Mapeamento do Sentir</div>
-          <div>© {new Date().getFullYear()} • Todos os direitos reservados</div>
+      <footer className="py-12 bg-white text-stone-400 text-center text-xs px-5 border-t border-stone-50 text-center">
+        <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center">
+          <div className="font-serif font-bold text-stone-800 text-lg italic text-center">Mapeamento do Sentir</div>
+          <div className="text-center">© {new Date().getFullYear()} • Todos os direitos reservados</div>
         </div>
       </footer>
 
