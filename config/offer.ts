@@ -23,7 +23,7 @@ export interface OfferConfig {
 }
 
 export const offer: OfferConfig = {
-  purchaseLink: "#", // Coloque o link do checkout aqui
+  purchaseLink: "https://pay.kiwify.com.br/jkzXxID", // Link do checkout atualizado
   whatsappLink: "https://wa.me/5521975316141",
   priceBRL: "198,00",
   paymentMethods: "Pix ou Cartão de Crédito",
