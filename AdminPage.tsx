@@ -136,9 +136,7 @@ const AdminPage: React.FC = () => {
           updates.imageUrl = formData.imageUrl;
         }
 
-        if (Object.keys(updates).length > 0) {
-          await blogService.updatePost(editingId, updates);
-        }
+
       } else {
         await blogService.savePost(formData);
       }
