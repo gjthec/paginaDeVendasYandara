@@ -6,28 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapeamento do Sentir - Clareza Emocional e Direção</title>
     <meta name="description" content="Uma jornada guiada para te devolver clareza emocional, direção interna e leveza para começar um novo ciclo." />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Habilitando o plugin de Tipografia do Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS do Quill Editor (Tema Snow) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css">
     <style>
-      body { font-family: 'Inter', sans-serif; }
-      h1, h2, h3 { font-family: 'Playfair Display', serif; }
+      body { font-family: 'Inter', sans-serif; background-color: #FDFCFB; margin: 0; padding: 0; }
+      h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      
+      /* Estilização customizada para o Quill dentro do Admin */
+      .ql-container { font-family: 'Inter', sans-serif !important; font-size: 16px !important; }
+      .ql-editor { min-height: 350px; }
+      .ql-toolbar.ql-snow { 
+        border-top-left-radius: 24px; 
+        border-top-right-radius: 24px; 
+        border-color: #f3f4f6 !important; 
+        background: #f9fafb;
+        padding: 12px !important;
+      }
+      .ql-container.ql-snow { 
+        border-bottom-left-radius: 24px; 
+        border-bottom-right-radius: 24px; 
+        border-color: #f3f4f6 !important; 
+        background: #fff;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body class="bg-[#FDFCFB] text-stone-800 antialiased overflow-x-hidden">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?external=react,react-dom",
+        "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react",
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+        "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js",
+        "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+        "react-quill": "https://esm.sh/react-quill@2.0.0-beta.2?external=react,react-dom"
+      }
+    }
+    </script>
+  </head>
+  <body class="antialiased overflow-x-hidden text-stone-800">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="./index.tsx"></script>
+  </body>
 </html>

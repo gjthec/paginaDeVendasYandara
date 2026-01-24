@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import CTAButton from './CTAButton';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -13,28 +15,35 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isHome = location.pathname === '/';
+
   const navLinks = [
-    { name: 'Para quem é', href: '#para-quem' },
-    { name: 'Como funciona', href: '#como-funciona' },
-    { name: 'Módulos', href: '#modulos' },
-    { name: 'Bônus', href: '#bonus' },
-    { name: 'Investimento', href: '#investimento' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Início', href: '/', internal: true },
+    { name: 'Blog', href: '/blog', internal: true },
+    { name: 'Como funciona', href: isHome ? '#como-funciona' : '/#como-funciona', internal: false },
+    { name: 'Módulos', href: isHome ? '#modulos' : '/#modulos', internal: false },
+    { name: 'Investimento', href: isHome ? '#investimento' : '/#investimento', internal: false },
   ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
-        <a href="#" className="text-xl md:text-2xl font-bold tracking-tight text-stone-800 font-serif">
+        <Link to="/" className="text-xl md:text-2xl font-bold tracking-tight text-stone-800 font-serif">
           Mapeamento do Sentir
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
-              {link.name}
-            </a>
+            link.internal ? (
+              <Link key={link.name} to={link.href} className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                {link.name}
+              </Link>
+            ) : (
+              <a key={link.name} href={link.href} className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                {link.name}
+              </a>
+            )
           ))}
           <CTAButton className="!py-2 !px-5 !text-sm shadow-none" />
         </nav>
@@ -53,15 +62,27 @@ const Header: React.FC = () => {
       <div className={`lg:hidden fixed inset-0 bg-white transition-all duration-500 ease-in-out z-40 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <nav className="flex flex-col items-center justify-center h-full space-y-8 p-6">
           {navLinks.map((link, idx) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className={`text-2xl font-serif text-stone-800 transition-all duration-500 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-              style={{ transitionDelay: `${idx * 100}ms` }}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
+            link.internal ? (
+              <Link 
+                key={link.name} 
+                to={link.href} 
+                className={`text-2xl font-serif text-stone-800 transition-all duration-500 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${idx * 100}ms` }}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className={`text-2xl font-serif text-stone-800 transition-all duration-500 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: `${idx * 100}ms` }}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            )
           ))}
           <div className={`pt-4 transition-all duration-500 transform ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
             <CTAButton onClick={() => setIsOpen(false)} />
