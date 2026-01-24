@@ -19,10 +19,10 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Início', href: '/', internal: true },
-    { name: 'Blog', href: '/blog', internal: true },
     { name: 'Como funciona', href: isHome ? '#como-funciona' : '/#como-funciona', internal: false },
     { name: 'Módulos', href: isHome ? '#modulos' : '/#modulos', internal: false },
     { name: 'Investimento', href: isHome ? '#investimento' : '/#investimento', internal: false },
+    { name: 'Blog', href: '/blog', internal: true },
   ];
 
   return (
