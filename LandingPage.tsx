@@ -1,25 +1,29 @@
 
-import React, { useState, useEffect } from 'react';
-import { Sparkles, MessageCircle, ArrowRight, Clock, ShieldCheck } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { 
+  CheckCircle2, 
+  Sparkles, 
+  Focus, 
+  Video, 
+  UserCircle2, 
+  ShieldCheck,
+  Instagram,
+  Send,
+  MessageCircle,
+  AudioLines,
+  FileText,
+  TrendingDown,
+  ArrowRight,
+  Clock
+} from 'lucide-react';
 import Header from './components/Header';
 import CTAButton from './components/CTAButton';
 import ModuleCard from './components/ModuleCard';
+import Accordion from './components/Accordion';
 import FloatingCTA from './components/FloatingCTA';
 import { offer, formatValue } from './config/offer';
-import { blogService, BlogPost } from './services/blogService';
 
 const LandingPage: React.FC = () => {
-  const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
-  
-  useEffect(() => {
-    const fetch = async () => {
-      const posts = await blogService.getPosts();
-      setLatestPosts(posts.slice(0, 2));
-    };
-    fetch();
-  }, []);
-
   const results = [
     { label: "Clareza sobre prioridades", value: "91%" },
     { label: "Consistência na rotina", value: "82%" },
@@ -32,92 +36,321 @@ const LandingPage: React.FC = () => {
     <main className="min-h-screen pb-20 lg:pb-0">
       <Header />
       
-      {/* HERO SECTION */}
+      {/* 2. HERO SECTION */}
       <section className="relative pt-28 pb-16 md:pt-48 md:pb-32 px-5 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-emerald-100 rounded-full blur-[100px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-orange-50 rounded-full blur-[100px]" />
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-emerald-100 rounded-full blur-[80px] md:blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-orange-50 rounded-full blur-[80px] md:blur-[100px]" />
         </div>
 
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-[#D9A08B]/10 text-[#D9A08B] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-bounce">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-[#D9A08B]/10 text-[#D9A08B] px-4 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest mb-6 animate-bounce">
             <Sparkles size={16} />
             <span>Apenas R$ 49,50 por semana</span>
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-bold text-stone-800 leading-tight mb-8 uppercase tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-800 leading-tight mb-6 md:mb-8 uppercase tracking-tight">
             Mapeamento <span className="italic font-light lowercase">do</span> Sentir
           </h1>
-          <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto">
-            Uma jornada guiada para te devolver clareza emocional e direção interna.
+          <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto px-2 text-center">
+            Uma jornada guiada para te devolver clareza emocional, direção interna e leveza para começar um novo ciclo.
           </h2>
+          <p className="text-base md:text-lg text-stone-500 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
+            Organizar por dentro o que hoje parece caótico por fora, com prática, presença e um caminho simples de seguir.
+          </p>
 
-          <div className="flex flex-col items-center gap-6">
-            <CTAButton className="scale-110" />
-            <a href={offer.whatsappLink} className="text-stone-500 hover:text-stone-800 transition-colors flex items-center gap-2 text-sm">
-              <MessageCircle size={18} />
-              <span>Dúvidas? Fale comigo no WhatsApp</span>
+          <div className="flex flex-col items-center gap-6 px-4">
+            <CTAButton className="w-full sm:w-auto scale-105 md:scale-110" />
+            <div className="flex flex-col items-center gap-2">
+              <p className="text-stone-400 text-xs font-medium uppercase tracking-widest">Acesso total por 12 meses</p>
+              <a href={offer.whatsappLink} className="text-stone-500 hover:text-stone-800 transition-colors flex items-center justify-center gap-2 text-sm text-center">
+                <MessageCircle size={18} className="shrink-0" />
+                <span>Dúvidas? Fale comigo no WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* NOVA SEÇÃO DE RESULTADOS (Substituindo os mini-boxes) */}
+          <div className="mt-20 max-w-2xl mx-auto bg-[#2D352D] p-6 md:p-10 rounded-[32px] md:rounded-[48px] shadow-2xl text-left border border-white/5 resultado-protocolo">
+            <h3 className="text-white text-xl md:text-2xl font-bold mb-8 text-center md:text-left font-serif italic">
+              Depois do Mapeamento do Sentir:
+            </h3>
+            
+            <div className="space-y-6">
+              {results.map((res, i) => (
+                <div key={i} className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="bg-[#C3D9C3] text-[#2D352D] px-4 py-2 rounded-xl text-xs md:text-sm font-bold shadow-sm whitespace-nowrap">
+                      {res.label}
+                    </div>
+                    <span className="text-white font-bold text-sm md:text-base opacity-90">{res.value}</span>
+                  </div>
+                  <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-[#C3D9C3] rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: res.value }}
+                      aria-label={`Progresso de ${res.label}: ${res.value}`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <p className="mt-8 text-emerald-100/50 text-[10px] md:text-xs text-center uppercase tracking-widest font-medium">
+              Dados baseados em percepção de alunas após 4 semanas de acompanhamento
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. PARA QUEM É */}
+      <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#F8F7F4]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center">Este processo é para pessoas reais, ocupadas e humanas.</h2>
+            <p className="text-lg md:text-xl text-stone-600 text-center">Em especial para quem:</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">
+            {[
+              "se sente sobrecarregada, confusa ou cansada com frequência",
+              "percebe que a mente não desacelera",
+              "vive ciclos de culpa e autocobrança",
+              "sente desânimo ou queda de energia",
+              "procrastina porque o corpo trava",
+              "quer retomar o próprio eixo"
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl border border-stone-100 shadow-sm md:shadow-none md:border-0 md:bg-transparent md:p-0">
+                <CheckCircle2 className="text-[#7A8C7A] shrink-0 mt-1" size={20} />
+                <p className="text-base md:text-lg text-stone-700 leading-snug">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 & 5. O QUE É / RECEBE */}
+      <section id="como-funciona" className="py-20 md:py-24 px-5">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center mb-16 md:mb-24">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 md:mb-8 leading-tight">O que é o Mapeamento do Sentir</h2>
+              <p className="text-lg md:text-xl text-stone-600 leading-relaxed mb-6">
+                Um processo em 4 módulos que estrutura sua vida emocional e prática de forma integrada.
+              </p>
+              <p className="text-base md:text-lg text-stone-500 leading-relaxed italic border-l-4 border-[#D9A08B] pl-5 md:pl-6 py-2">
+                Você não precisa saber por onde começar. Você só precisa aparecer. O resto é guiado.
+              </p>
+            </div>
+            <div className="bg-white p-8 md:p-10 rounded-3xl md:rounded-[40px] shadow-sm border border-stone-100">
+              <h3 className="text-xl md:text-2xl font-bold text-stone-800 mb-6 md:mb-8 text-center md:text-left">O que você recebe:</h3>
+              <ul className="space-y-5 md:space-y-6">
+                {[
+                  { icon: <Video size={20} className="text-[#D9A08B]" />, text: "4 módulos com videoaulas objetivas" },
+                  { icon: <Sparkles size={20} className="text-[#D9A08B]" />, text: "Exercícios guiados de autorreflexão" },
+                  { icon: <Focus size={20} className="text-[#D9A08B]" />, text: "4 sessões individuais (1 por módulo)" }
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 text-base md:text-lg text-stone-700">
+                    <div className="p-2.5 md:p-3 bg-stone-50 rounded-xl md:rounded-2xl shrink-0">{item.icon}</div>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-[#7A8C7A] rounded-3xl md:rounded-[40px] p-10 md:p-20 text-center text-white relative overflow-hidden">
+            <h3 className="text-xl md:text-4xl font-bold max-w-4xl mx-auto leading-relaxed relative z-10 font-serif italic font-normal text-center">
+              “Você sai do emaranhado interno para um mapa claro do que te trava e do que te sustenta.”
+            </h3>
+            <p className="mt-6 md:mt-8 text-emerald-50 text-base md:text-xl font-light text-center">
+              Um plano possível para o seu próximo ciclo, alinhado ao seu ritmo real.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. MÓDULOS */}
+      <section id="modulos" className="py-20 md:py-24 px-5 bg-[#FDFCFB]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-12 md:mb-16 text-center">Os 4 módulos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <ModuleCard 
+              index={0}
+              title="Módulo 1: Organização"
+              description="Antes de tudo, organizamos o terreno. Entenda como a sobrecarga bagunça sua mente."
+              bullets={["identificar gatilhos", "enxergar excessos", "filtrar o essencial"]}
+              footerExercises="Mapeamento do caos e excessos."
+              footerSession="Sessão individual inclusa."
+            />
+            <ModuleCard 
+              index={1}
+              title="Módulo 2: Desânimo"
+              description="O desânimo não é um defeito, é um pedido de atenção. Aprenda a rastrear sua energia."
+              bullets={["vazamentos de energia", "humor e sensibilidade", "autocuidado realista"]}
+              footerExercises="Rastreamento de energia."
+              footerSession="Sessão individual inclusa."
+            />
+            <ModuleCard 
+              index={2}
+              title="Módulo 3: Procrastinação"
+              description="Diferencie pausa necessária de fuga. Entenda o que seu corpo diz quando trava."
+              bullets={["corpo que trava", "medo e comparação", "micro passos reais"]}
+              footerExercises="Identificação de bloqueios."
+              footerSession="Sessão individual inclusa."
+            />
+            <ModuleCard 
+              index={3}
+              title="Módulo 4: Planejamento"
+              description="Criar direção, não apenas metas. Planeje respeitando seu corpo e vida real."
+              bullets={["semanas leves", "prioridades reais", "plano sustentável"]}
+              footerExercises="Agenda afetiva e plano possível."
+              footerSession="Sessão individual inclusa."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 10. QUEM CONDUZ */}
+      <section className="py-20 md:py-24 px-5 bg-stone-100">
+        <div className="max-w-5xl mx-auto bg-white rounded-3xl md:rounded-[40px] overflow-hidden shadow-sm flex flex-col md:flex-row">
+          <div className="w-full md:w-2/5 h-64 md:h-auto">
+            <img 
+              src={offer.instructor.photoUrl} 
+              alt={offer.instructor.name} 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+          <div className="w-full md:w-3/5 p-8 md:p-16 flex flex-col justify-center">
+            <span className="text-[#D9A08B] font-bold uppercase tracking-widest text-xs mb-3">Quem conduz</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">{offer.instructor.name}</h2>
+            <p className="text-lg text-stone-500 italic mb-6">{offer.instructor.tagline}</p>
+            <p className="text-base md:text-lg text-stone-600 leading-relaxed mb-8">
+              {offer.instructor.bio}
+            </p>
+            <div className="flex flex-wrap gap-6">
+              <a href={offer.instructor.instagramUrl} className="flex items-center gap-2 text-stone-700 hover:text-[#D9A08B] transition-colors font-medium">
+                <Instagram size={20} /> Instagram
+              </a>
+              <a href={offer.instructor.supportChannelUrl} className="flex items-center gap-2 text-stone-700 hover:text-[#D9A08B] transition-colors font-medium">
+                <Send size={20} /> Suporte
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 13. INVESTIMENTO (DESTAQUE ABSOLUTO R$ 49,50) */}
+      <section id="investimento" className="py-20 md:py-32 px-5 bg-white relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-50/30 rounded-full blur-[120px] -z-10" />
+        
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6">Investimento Leve</h2>
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
+              Organizar sua vida emocional não precisa custar uma fortuna. Criamos um modelo acessível para que ninguém fique de fora.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto relative">
+            {/* O Cartão de Preço Principal */}
+            <div className="bg-white rounded-3xl md:rounded-[50px] shadow-2xl overflow-hidden border-4 border-[#7A8C7A]/10 flex flex-col md:flex-row relative z-10">
+              
+              {/* Lado Esquerdo: Valor Perceptível */}
+              <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-[#7A8C7A] text-white">
+                <p className="text-emerald-100 uppercase tracking-widest text-[10px] md:text-xs font-bold mb-6 border-b border-white/20 pb-2">O seu custo semanal</p>
+                
+                <div className="mb-8">
+                  <div className="flex items-baseline justify-center gap-1 mb-1">
+                    <span className="text-2xl font-medium text-emerald-100 italic mr-1">R$</span>
+                    <span className="text-7xl md:text-8xl font-bold tracking-tighter">49,50</span>
+                  </div>
+                  <p className="text-emerald-50 text-base md:text-lg font-medium opacity-80">
+                    Por módulo / semana
+                  </p>
+                </div>
+
+                <div className="w-full p-4 bg-white/10 rounded-2xl flex items-center justify-center gap-3">
+                  <Clock size={20} className="text-emerald-200" />
+                  <p className="text-sm font-medium">Acompanhamento Individual Incluso</p>
+                </div>
+              </div>
+
+              {/* Lado Direito: Checkout e Detalhes */}
+              <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-white">
+                <div className="mb-10 text-left w-full space-y-4">
+                  <h3 className="text-xl font-bold text-stone-800">O que está garantido:</h3>
+                  <ul className="space-y-4">
+                    {[
+                      "4 Sessões individuais de 50min",
+                      "4 Módulos de conteúdo guiado",
+                      "Material de apoio e Bônus",
+                      "Suporte direto no WhatsApp"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-stone-600 font-medium">
+                        <CheckCircle2 size={18} className="text-[#7A8C7A] shrink-0" />
+                        <span className="text-sm md:text-base">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="w-full space-y-6">
+                  <div className="flex flex-col gap-1 border-t border-stone-100 pt-6">
+                    <p className="text-stone-400 text-[10px] uppercase font-bold tracking-widest">Valor Total do Pacote</p>
+                    <p className="text-2xl md:text-3xl font-bold text-stone-800 tracking-tight">R$ {formatValue(offer.priceBRL)}</p>
+                  </div>
+                  
+                  <CTAButton className="w-full py-5 text-lg shadow-xl" />
+                  
+                  <div className="flex flex-col gap-2">
+                    <p className="text-stone-500 text-xs font-medium">{formatValue(offer.paymentMethods)}</p>
+                    <div className="flex items-center justify-center gap-2 text-[#7A8C7A] text-xs font-bold">
+                      <ShieldCheck size={14} /> 
+                      <span>{formatValue(offer.guaranteePolicy)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Tag */}
+            <div className="absolute -top-6 -right-6 md:-right-12 bg-[#D9A08B] text-white px-6 py-3 rounded-2xl shadow-xl z-20 transform rotate-6 hidden md:block text-center">
+              <p className="text-[10px] uppercase font-black tracking-tighter">Oportunidade</p>
+              <p className="text-xl font-bold">Vagas Limitadas</p>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-stone-500 text-sm md:text-base italic px-4">
+              "Menos que o valor de uma pizza por semana para ter um especialista te ajudando a organizar sua vida emocional e prática."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 14. FINAL */}
+      <section className="py-24 md:py-32 px-5 bg-[#7A8C7A] text-white text-center">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2 text-center">Pronta para começar?</h2>
+          <p className="text-lg md:text-2xl text-emerald-50 mb-10 md:mb-12 leading-relaxed font-light px-4 text-center">
+            Recuperar sua clareza interna é recuperar sua vida. Escolha com mais calma, firmeza e menos confusão.
+          </p>
+          <CTAButton variant="secondary" className="w-full sm:w-auto scale-105 md:scale-125 mb-8" />
+          <div className="mt-8 text-center">
+            <a href={offer.whatsappLink} className="text-emerald-100 hover:text-white transition-colors underline underline-offset-8 text-base md:text-lg">
+              Dúvidas? Fale no WhatsApp.
             </a>
           </div>
         </div>
       </section>
 
-      {/* BLOG PREVIEW SECTION */}
-      {latestPosts.length > 0 && (
-        <section className="py-24 md:py-32 px-5 bg-stone-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-              <div className="max-w-xl">
-                <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif">Notas sobre o Sentir</h2>
-                <p className="text-lg text-stone-600">Reflexões recentes direto do nosso diário.</p>
-              </div>
-              <Link to="/blog" className="flex items-center gap-2 text-[#7A8C7A] font-bold text-sm uppercase tracking-widest border-b-2 border-[#7A8C7A] pb-1">
-                Ver todos os textos <ArrowRight size={18}/>
-              </Link>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {latestPosts.map(post => (
-                <Link key={post.id} to={`/blog/${post.id}`} className="group relative h-[450px] rounded-[40px] overflow-hidden shadow-xl animate-fade-in">
-                  <img src={post.imageUrl} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent p-12 flex flex-col justify-end">
-                    <span className="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">{post.category}</span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif leading-tight">{post.title}</h3>
-                    <div className="text-white/80 font-bold text-sm uppercase tracking-widest flex items-center gap-2">Ler agora <ArrowRight size={18}/></div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* MÓDULOS */}
-      <section id="modulos" className="py-20 md:py-24 px-5 bg-[#FDFCFB]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-16 text-center">Os 4 módulos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ModuleCard index={0} title="Módulo 1: Organização" description="Entenda como a sobrecarga emocional bagunça sua mente e como filtrar o essencial." bullets={["identificar gatilhos", "enxergar excessos", "filtrar o essencial"]} footerExercises="Mapeamento do caos." footerSession="Sessão individual inclusa." />
-            <ModuleCard index={1} title="Módulo 2: Desânimo" description="Aprenda a rastrear sua energia e diferenciar cansaço de falta de propósito." bullets={["vazamentos de energia", "humor e sensibilidade", "autocuidado realista"]} footerExercises="Rastreamento de energia." footerSession="Sessão individual inclusa." />
-            <ModuleCard index={2} title="Módulo 3: Procrastinação" description="Diferencie pausa necessária de fuga. Entenda o que seu corpo diz quando trava." bullets={["corpo que trava", "medo e comparação", "micro passos reais"]} footerExercises="Identificação de bloqueios." footerSession="Sessão individual inclusa." />
-            <ModuleCard index={3} title="Módulo 4: Planejamento" description="Crie uma direção sustentável para as suas semanas, respeitando seu tempo." bullets={["semanas leves", "prioridades reais", "plano sustentável"]} footerExercises="Agenda afetiva." footerSession="Sessão individual inclusa." />
-          </div>
+      <footer className="py-12 bg-white text-stone-400 text-center text-xs px-5 border-t border-stone-50 text-center">
+        <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center">
+          <div className="font-serif font-bold text-stone-800 text-lg italic text-center">Mapeamento do Sentir</div>
+          <div className="text-center">© {new Date().getFullYear()} • Todos os direitos reservados</div>
         </div>
-      </section>
-
-      {/* INVESTIMENTO */}
-      <section id="investimento" className="py-20 md:py-32 px-5 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-[#7A8C7A] rounded-[50px] p-12 md:p-20 text-white text-center shadow-2xl relative overflow-hidden">
-             <h2 className="text-4xl md:text-6xl font-bold mb-8 italic font-serif">Apenas R$ {formatValue(offer.priceBRL)}</h2>
-             <p className="text-emerald-50/80 mb-12 text-lg max-w-xl mx-auto">Investimento único para 12 meses de acesso e acompanhamento individual.</p>
-             <CTAButton variant="secondary" className="scale-125" />
-          </div>
-        </div>
-      </section>
-
-      <footer className="py-12 bg-white text-stone-300 text-center text-[10px] uppercase tracking-widest font-bold">
-        © {new Date().getFullYear()} Mapeamento do Sentir • <Link to="/admin" className="hover:text-stone-800">Admin</Link>
       </footer>
 
       <FloatingCTA />
