@@ -12,6 +12,7 @@ export interface OfferConfig {
   purchaseLink: string;
   whatsappLink: string;
   priceBRL: string;
+  originalPriceBRL: string;
   paymentMethods: string;
   datesAndSpots: string;
   guaranteePolicy: string;
@@ -23,9 +24,10 @@ export interface OfferConfig {
 }
 
 export const offer: OfferConfig = {
-  purchaseLink: "https://pay.kiwify.com.br/jkzXxID", // Link do checkout atualizado
+  purchaseLink: "https://pay.kiwify.com.br/jkzXxID",
   whatsappLink: "https://wa.me/5521975316141",
   priceBRL: "198,00",
+  originalPriceBRL: "480,00",
   paymentMethods: "Pix ou Cartão de Crédito",
   datesAndSpots: "Turma com início imediato • Vagas Limitadas",
   guaranteePolicy: "7 dias de garantia incondicional",
@@ -34,12 +36,12 @@ export const offer: OfferConfig = {
   sessionFormatText: "Sessões individuais de 50 minutos realizadas via Google Meet.",
   postPurchaseStepsText: "Você receberá um e-mail com acesso à plataforma, o calendário de encontros e o link para agendamento dos bônus.",
   instructor: {
-    name: "Seu Nome Aqui",
-    tagline: "Condução leve, prática e humana",
-    bio: "Especialista em processos de autoconhecimento e organização interna. Criei o Mapeamento do Sentir para ajudar pessoas que, assim como eu, já se sentiram perdidas no próprio cansaço e precisavam de um caminho seguro para voltar ao eixo.",
-    instagramUrl: "https://instagram.com/seuusuario",
-    supportChannelUrl: "https://t.me/seuchannel",
-    photoUrl: "https://picsum.photos/seed/instructor/400/400"
+    name: "YANDARA MALUNGO",
+    tagline: "Psicanalista, estudante e pesquisadora em Fenomenologia Existencial.",
+    bio: "Mas antes de qualquer título, sou uma pessoa que acredita que sentir é um ato de coragem. Criei o Sentir é Particular porque também já me vi perdida entre tarefas, expectativas e tentativas de dar conta de tudo — enquanto, por dentro, algo pedia pausa, escuta e verdade.",
+    instagramUrl: "https://instagram.com/yandaramalungo",
+    supportChannelUrl: "https://wa.me/5521975316141",
+    photoUrl: "https://i.ibb.co/wqzkq9L/IMG-4742.jpg"
   }
 };
 

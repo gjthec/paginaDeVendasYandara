@@ -4,8 +4,17 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import Header from './components/Header';
 import FloatingCTA from './components/FloatingCTA';
-import { blogService, BlogPost } from './services/blogService';
+import { getPostById, type BlogPost } from './services/blogService';
 import { offer } from './config/offer';
+
+function Loader2({ className, size }: { className?: string, size?: number }) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 1s linear infinite' }}>
+      <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+      <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
+    </svg>
+  );
+}
 
 const BlogPostDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +25,7 @@ const BlogPostDetailPage: React.FC = () => {
   useEffect(() => {
     if (id) {
       const fetch = async () => {
-        const found = await blogService.getPostById(id);
+        const found = await getPostById(id);
         if (found) {
           setPost(found);
           window.scrollTo(0, 0);
@@ -31,7 +40,7 @@ const BlogPostDetailPage: React.FC = () => {
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-[#FDFCFB]">
-      <Loader2 className="animate-spin text-stone-300" size={32} />
+      <Loader2 className="text-stone-300" size={32} />
     </div>
   );
 
@@ -70,9 +79,8 @@ const BlogPostDetailPage: React.FC = () => {
               </div>
             )}
             
-            {/* Renderização de HTML rico usando Tailwind Typography */}
             <div 
-              className="prose prose-stone prose-lg md:prose-xl max-w-none prose-headings:font-serif prose-headings:text-stone-800 prose-p:text-stone-600 prose-p:leading-relaxed prose-li:text-stone-600"
+              className="prose prose-stone prose-lg md:prose-xl max-w-none prose-headings:font-serif prose-headings:text-stone-800 prose-p:text-stone-600 prose-p:leading-relaxed prose-li:text-stone-600 custom-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
             
@@ -102,13 +110,22 @@ const BlogPostDetailPage: React.FC = () => {
         </div>
       </footer>
       <FloatingCTA />
+      <style>{`
+        .custom-content img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          border-radius: 20px;
+          margin-top: 2rem;
+          margin-bottom: 2rem;
+        }
+        .custom-content .ql-align-center { text-align: center; }
+        .custom-content .ql-align-right { text-align: right; }
+        .custom-content img.ql-align-center { margin-left: auto; margin-right: auto; }
+        .custom-content img.ql-align-right { margin-left: auto; }
+      `}</style>
     </main>
   );
 };
-
-// Helper loader simple replacement
-const Loader2 = ({ className, size }: { className?: string, size?: number }) => (
-  <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-);
 
 export default BlogPostDetailPage;

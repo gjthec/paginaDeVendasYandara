@@ -1,25 +1,21 @@
 
 import React from 'react';
+// Import Link component from react-router-dom
+import { Link } from 'react-router-dom';
 import { 
   CheckCircle2, 
   Sparkles, 
   Focus, 
   Video, 
-  UserCircle2, 
   ShieldCheck,
   Instagram,
   Send,
   MessageCircle,
-  AudioLines,
-  FileText,
-  TrendingDown,
-  ArrowRight,
   Clock
 } from 'lucide-react';
 import Header from './components/Header';
 import CTAButton from './components/CTAButton';
 import ModuleCard from './components/ModuleCard';
-import Accordion from './components/Accordion';
 import FloatingCTA from './components/FloatingCTA';
 import { offer, formatValue } from './config/offer';
 
@@ -33,23 +29,23 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen pb-20 lg:pb-0">
+    <main className="min-h-screen pb-20 lg:pb-0 bg-[#FDFCFB]">
       <Header />
       
-      {/* 2. HERO SECTION */}
+      {/* HERO SECTION */}
       <section className="relative pt-28 pb-16 md:pt-48 md:pb-32 px-5 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
           <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-emerald-100 rounded-full blur-[80px] md:blur-[100px]" />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-orange-50 rounded-full blur-[80px] md:blur-[100px]" />
         </div>
 
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-[#D9A08B]/10 text-[#D9A08B] px-4 py-2 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest mb-6 animate-bounce">
             <Sparkles size={16} />
             <span>Apenas R$ 49,50 por semana</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-800 leading-tight mb-6 md:mb-8 uppercase tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-stone-800 leading-tight mb-6 md:mb-8 uppercase tracking-tight font-serif">
             Mapeamento <span className="italic font-light lowercase">do</span> Sentir
           </h1>
           <h2 className="text-lg md:text-3xl text-stone-600 font-medium leading-relaxed mb-8 max-w-3xl mx-auto px-2 text-center">
@@ -70,8 +66,7 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
 
-          {/* NOVA SEÇÃO DE RESULTADOS (Substituindo os mini-boxes) */}
-          <div className="mt-20 max-w-2xl mx-auto bg-[#2D352D] p-6 md:p-10 rounded-[32px] md:rounded-[48px] shadow-2xl text-left border border-white/5 resultado-protocolo">
+          <div className="mt-20 max-w-2xl mx-auto bg-[#2D352D] p-6 md:p-10 rounded-[32px] md:rounded-[48px] shadow-2xl text-left border border-white/5">
             <h3 className="text-white text-xl md:text-2xl font-bold mb-8 text-center md:text-left font-serif italic">
               Depois do Mapeamento do Sentir:
             </h3>
@@ -103,11 +98,11 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. PARA QUEM É */}
+      {/* PARA QUEM É */}
       <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#F8F7F4]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center">Este processo é para pessoas reais, ocupadas e humanas.</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center font-serif">Este processo é para pessoas reais, ocupadas e humanas.</h2>
             <p className="text-lg md:text-xl text-stone-600 text-center">Em especial para quem:</p>
           </div>
 
@@ -129,12 +124,12 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4 & 5. O QUE É / RECEBE */}
-      <section id="como-funciona" className="py-20 md:py-24 px-5">
+      {/* COMO FUNCIONA */}
+      <section id="como-funciona" className="py-20 md:py-24 px-5 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center mb-16 md:mb-24">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 md:mb-8 leading-tight">O que é o Mapeamento do Sentir</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 md:mb-8 leading-tight font-serif">O que é o Mapeamento do Sentir</h2>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed mb-6">
                 Um processo em 4 módulos que estrutura sua vida emocional e prática de forma integrada.
               </p>
@@ -142,7 +137,7 @@ const LandingPage: React.FC = () => {
                 Você não precisa saber por onde começar. Você só precisa aparecer. O resto é guiado.
               </p>
             </div>
-            <div className="bg-white p-8 md:p-10 rounded-3xl md:rounded-[40px] shadow-sm border border-stone-100">
+            <div className="bg-[#FDFCFB] p-8 md:p-10 rounded-3xl md:rounded-[40px] shadow-sm border border-stone-100">
               <h3 className="text-xl md:text-2xl font-bold text-stone-800 mb-6 md:mb-8 text-center md:text-left">O que você recebe:</h3>
               <ul className="space-y-5 md:space-y-6">
                 {[
@@ -151,7 +146,7 @@ const LandingPage: React.FC = () => {
                   { icon: <Focus size={20} className="text-[#D9A08B]" />, text: "4 sessões individuais (1 por módulo)" }
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 text-base md:text-lg text-stone-700">
-                    <div className="p-2.5 md:p-3 bg-stone-50 rounded-xl md:rounded-2xl shrink-0">{item.icon}</div>
+                    <div className="p-2.5 md:p-3 bg-white rounded-xl md:rounded-2xl shadow-sm shrink-0">{item.icon}</div>
                     <span>{item.text}</span>
                   </li>
                 ))}
@@ -170,10 +165,10 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. MÓDULOS */}
+      {/* MÓDULOS */}
       <section id="modulos" className="py-20 md:py-24 px-5 bg-[#FDFCFB]">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-12 md:mb-16 text-center">Os 4 módulos</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-12 md:mb-16 text-center font-serif">Os 4 módulos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <ModuleCard 
               index={0}
@@ -211,7 +206,7 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 10. QUEM CONDUZ */}
+      {/* QUEM CONDUZ */}
       <section className="py-20 md:py-24 px-5 bg-stone-100">
         <div className="max-w-5xl mx-auto bg-white rounded-3xl md:rounded-[40px] overflow-hidden shadow-sm flex flex-col md:flex-row">
           <div className="w-full md:w-2/5 h-64 md:h-auto">
@@ -223,7 +218,7 @@ const LandingPage: React.FC = () => {
           </div>
           <div className="w-full md:w-3/5 p-8 md:p-16 flex flex-col justify-center">
             <span className="text-[#D9A08B] font-bold uppercase tracking-widest text-xs mb-3">Quem conduz</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">{offer.instructor.name}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2 font-serif">{offer.instructor.name}</h2>
             <p className="text-lg text-stone-500 italic mb-6">{offer.instructor.tagline}</p>
             <p className="text-base md:text-lg text-stone-600 leading-relaxed mb-8">
               {offer.instructor.bio}
@@ -240,27 +235,22 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 13. INVESTIMENTO (DESTAQUE ABSOLUTO R$ 49,50) */}
+      {/* INVESTIMENTO */}
       <section id="investimento" className="py-20 md:py-32 px-5 bg-white relative overflow-hidden">
-        {/* Background elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-50/30 rounded-full blur-[120px] -z-10" />
         
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6">Investimento Leve</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif">Investimento Leve</h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               Organizar sua vida emocional não precisa custar uma fortuna. Criamos um modelo acessível para que ninguém fique de fora.
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto relative">
-            {/* O Cartão de Preço Principal */}
             <div className="bg-white rounded-3xl md:rounded-[50px] shadow-2xl overflow-hidden border-4 border-[#7A8C7A]/10 flex flex-col md:flex-row relative z-10">
-              
-              {/* Lado Esquerdo: Valor Perceptível */}
               <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-[#7A8C7A] text-white">
                 <p className="text-emerald-100 uppercase tracking-widest text-[10px] md:text-xs font-bold mb-6 border-b border-white/20 pb-2">O seu custo semanal</p>
-                
                 <div className="mb-8">
                   <div className="flex items-baseline justify-center gap-1 mb-1">
                     <span className="text-2xl font-medium text-emerald-100 italic mr-1">R$</span>
@@ -270,17 +260,15 @@ const LandingPage: React.FC = () => {
                     Por módulo / semana
                   </p>
                 </div>
-
                 <div className="w-full p-4 bg-white/10 rounded-2xl flex items-center justify-center gap-3">
                   <Clock size={20} className="text-emerald-200" />
                   <p className="text-sm font-medium">Acompanhamento Individual Incluso</p>
                 </div>
               </div>
 
-              {/* Lado Direito: Checkout e Detalhes */}
               <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-white">
                 <div className="mb-10 text-left w-full space-y-4">
-                  <h3 className="text-xl font-bold text-stone-800">O que está garantido:</h3>
+                  <h3 className="text-xl font-bold text-stone-800 font-serif">O que está garantido:</h3>
                   <ul className="space-y-4">
                     {[
                       "4 Sessões individuais de 50min",
@@ -295,15 +283,18 @@ const LandingPage: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="w-full space-y-6">
                   <div className="flex flex-col gap-1 border-t border-stone-100 pt-6">
                     <p className="text-stone-400 text-[10px] uppercase font-bold tracking-widest">Valor Total do Pacote</p>
-                    <p className="text-2xl md:text-3xl font-bold text-stone-800 tracking-tight">R$ {formatValue(offer.priceBRL)}</p>
+                    <div className="mt-1">
+                      <span className="text-stone-400 line-through text-lg block leading-none mb-1">De R$ {formatValue(offer.originalPriceBRL)}</span>
+                      <p className="text-2xl md:text-3xl font-bold text-stone-800 tracking-tight">
+                        <span className="text-sm font-medium text-stone-500 mr-1 italic">Por apenas</span> 
+                        R$ {formatValue(offer.priceBRL)}
+                      </p>
+                    </div>
                   </div>
-                  
                   <CTAButton className="w-full py-5 text-lg shadow-xl" />
-                  
                   <div className="flex flex-col gap-2">
                     <p className="text-stone-500 text-xs font-medium">{formatValue(offer.paymentMethods)}</p>
                     <div className="flex items-center justify-center gap-2 text-[#7A8C7A] text-xs font-bold">
@@ -314,23 +305,15 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Floating Tag */}
             <div className="absolute -top-6 -right-6 md:-right-12 bg-[#D9A08B] text-white px-6 py-3 rounded-2xl shadow-xl z-20 transform rotate-6 hidden md:block text-center">
               <p className="text-[10px] uppercase font-black tracking-tighter">Oportunidade</p>
               <p className="text-xl font-bold">Vagas Limitadas</p>
             </div>
           </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-stone-500 text-sm md:text-base italic px-4">
-              "Menos que o valor de uma pizza por semana para ter um especialista te ajudando a organizar sua vida emocional e prática."
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* 14. FINAL */}
+      {/* FINAL */}
       <section className="py-24 md:py-32 px-5 bg-[#7A8C7A] text-white text-center">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2 text-center">Pronta para começar?</h2>
@@ -346,10 +329,10 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <footer className="py-12 bg-white text-stone-400 text-center text-xs px-5 border-t border-stone-50 text-center">
+      <footer className="py-12 bg-white text-stone-400 text-center text-xs px-5 border-t border-stone-50">
         <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center">
-          <div className="font-serif font-bold text-stone-800 text-lg italic text-center">Mapeamento do Sentir</div>
-          <div className="text-center">© {new Date().getFullYear()} • Todos os direitos reservados</div>
+          <div className="font-serif font-bold text-stone-800 text-lg italic">Mapeamento do Sentir</div>
+          <div>© {new Date().getFullYear()} • Todos os direitos reservados • <Link to="/admin" className="hover:text-stone-800">Admin</Link></div>
         </div>
       </footer>
 

@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import FloatingCTA from './components/FloatingCTA';
-import { blogService, BlogPost } from './services/blogService';
-import { Clock, ArrowRight } from 'lucide-react';
+import { getPosts, type BlogPost } from './services/blogService';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const BlogPage: React.FC = () => {
@@ -12,7 +12,7 @@ const BlogPage: React.FC = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await blogService.getPosts();
+      const data = await getPosts();
       setPosts(data);
       setLoading(false);
     };
@@ -51,6 +51,7 @@ const BlogPage: React.FC = () => {
                   
                   <div className="flex flex-col flex-grow px-2">
                     <div className="flex items-center gap-4 text-stone-400 text-[10px] mb-4 uppercase tracking-widest font-bold">
+                      <Calendar size={12} />
                       <span>{post.date}</span>
                     </div>
                     
