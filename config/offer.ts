@@ -41,7 +41,7 @@ export const offer: OfferConfig = {
     bio: "Mas antes de qualquer título, sou uma pessoa que acredita que sentir é um ato de coragem. Criei o Sentir é Particular porque também já me vi perdida entre tarefas, expectativas e tentativas de dar conta de tudo — enquanto, por dentro, algo pedia pausa, escuta e verdade.",
     instagramUrl: "https://instagram.com/yandaramalungo",
     supportChannelUrl: "https://wa.me/5521975316141",
-    photoUrl: "/IMG-4742.jpg"
+    photoUrl: "/IMG-4742.jpeg"
   }
 };
 
