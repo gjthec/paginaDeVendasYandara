@@ -10,6 +10,7 @@ import HeroSection from './components/landing/HeroSection';
 import HowItWorksSection from './components/landing/HowItWorksSection';
 import InstructorSection from './components/landing/InstructorSection';
 import InvestmentSection from './components/landing/InvestmentSection';
+import MappingIncludesSection from './components/landing/MappingIncludesSection';
 import ModulesSection from './components/landing/ModulesSection';
 import ProtocolSection from './components/landing/ProtocolSection';
 
@@ -32,6 +33,7 @@ const LandingPage: React.FC = () => {
       <HowItWorksSection />
       <AudienceSection />
       <ModulesSection />
+      <MappingIncludesSection />
       <InstructorSection instructor={offer.instructor} />
       <InvestmentSection offer={offer} />
       <FinalSection results={results} whatsappLink={offer.whatsappLink} />
