@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import CTAButton from '../CTAButton';
 
@@ -24,12 +24,25 @@ const ProtocolSection: React.FC = () => {
     if (!item) return;
 
     item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    setActiveTheme(index);
   };
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveTheme((prev) => {
+        const next = (prev + 1) % themes.length;
+        scrollToTheme(next);
+        return next;
+      });
+    }, 5000);
+
+    return () => window.clearInterval(id);
+  }, [themes.length]);
 
   return (
     <section id="protocolo" className="py-20 md:py-24 px-5 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl">
+        <div className="w-full">
           <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 leading-tight font-serif">
             Não é que você não consiga se organizar.
           </h2>
