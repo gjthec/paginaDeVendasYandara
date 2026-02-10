@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import CTAButton from '../CTAButton';
 
 const ProtocolSection: React.FC = () => {
@@ -16,7 +15,7 @@ const ProtocolSection: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeTheme, setActiveTheme] = useState(0);
 
-  const scrollToTheme = (index: number) => {
+  const scrollToTheme = (index: number, updateState = true) => {
     const el = trackRef.current;
     if (!el) return;
 
@@ -24,14 +23,16 @@ const ProtocolSection: React.FC = () => {
     if (!item) return;
 
     item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    setActiveTheme(index);
+    if (updateState) {
+      setActiveTheme(index);
+    }
   };
 
   useEffect(() => {
     const id = window.setInterval(() => {
       setActiveTheme((prev) => {
         const next = (prev + 1) % themes.length;
-        scrollToTheme(next);
+        scrollToTheme(next, false);
         return next;
       });
     }, 5000);
@@ -71,24 +72,6 @@ const ProtocolSection: React.FC = () => {
           </p>
 
           <div className="relative">
-            <button
-              type="button"
-              onClick={() => scrollToTheme(Math.max(0, activeTheme - 1))}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white/80 border border-stone-200 shadow-sm hover:bg-white transition hidden md:flex"
-              aria-label="Tema anterior"
-            >
-              <ChevronLeft size={20} className="text-stone-700" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToTheme(Math.min(themes.length - 1, activeTheme + 1))}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white/80 border border-stone-200 shadow-sm hover:bg-white transition hidden md:flex"
-              aria-label="Próximo tema"
-            >
-              <ChevronRight size={20} className="text-stone-700" />
-            </button>
-
             <div
               ref={trackRef}
               onScroll={() => {
