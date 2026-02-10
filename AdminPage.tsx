@@ -2,26 +2,18 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { getPosts, savePost, updatePost, deletePost, type BlogPost } from './services/blogService';
 import { auth } from './services/firebase';
-// Consolidating all firebase/auth imports to avoid potential resolution issues
 import { 
   signInWithEmailAndPassword, 
   onAuthStateChanged, 
-  signOut,
-  type User
+  signOut
 } from "firebase/auth";
-import { Trash2, Plus, LogOut, Lock, X, Edit3, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, AlertTriangle } from 'lucide-react';
+import type { User } from "firebase/auth";
+import { Trash2, Plus, LogOut, Lock, X, Edit3, Image as ImageIcon, AlignLeft, AlignCenter, AlignRight, AlertTriangle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-// Componente de ícone movido para cima para evitar hoisting
-function ArrowLeftIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
-  );
-}
-
-// Função utilitária para comprimir imagens
+// Funções utilitárias antes do componente
 const compressImage = (base64Str: string, maxWidth: number, maxHeight: number, quality: number): Promise<string> => {
   return new Promise((resolve) => {
     const img = new Image();
@@ -30,7 +22,6 @@ const compressImage = (base64Str: string, maxWidth: number, maxHeight: number, q
       const canvas = document.createElement('canvas');
       let width = img.width;
       let height = img.height;
-
       if (width > height) {
         if (width > maxWidth) {
           height *= maxWidth / width;
@@ -42,7 +33,6 @@ const compressImage = (base64Str: string, maxWidth: number, maxHeight: number, q
           height = maxHeight;
         }
       }
-
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext('2d');
@@ -53,7 +43,6 @@ const compressImage = (base64Str: string, maxWidth: number, maxHeight: number, q
   });
 };
 
-// Extensão do Formato de Imagem do Quill para suportar largura personalizada
 const ImageFormat: any = Quill.import('formats/image');
 class CustomImage extends ImageFormat {
   static formats(domNode: HTMLElement) {
@@ -149,24 +138,10 @@ const AdminPage: React.FC = () => {
         reader.onload = async () => {
           const originalBase64 = reader.result as string;
           const compressed = await compressImage(originalBase64, 800, 800, 0.6);
-          const size = new Blob([compressed]).size;
-          
-          if (size > 250000) {
-            alert("Imagem interna excede o limite de 250KB após compressão.");
-            return;
-          }
-
           const quill = quillRef.current?.getEditor();
           const range = quill?.getSelection();
           if (quill && range) {
             quill.insertEmbed(range.index, 'image', compressed);
-            setTimeout(() => {
-              const imgs = quill.root.querySelectorAll('img');
-              const lastImg = imgs[imgs.length - 1];
-              if (lastImg) {
-                (lastImg as HTMLElement).click();
-              }
-            }, 100);
           }
         };
         reader.readAsDataURL(file);
@@ -191,17 +166,8 @@ const AdminPage: React.FC = () => {
       }
     };
 
-    const handleDragStart = (e: DragEvent) => {
-      if ((e.target as HTMLElement).tagName === 'IMG') e.preventDefault();
-    };
-
     editorRoot?.addEventListener('click', handleEditorClick);
-    editorRoot?.addEventListener('dragstart', handleDragStart);
-
-    return () => {
-      editorRoot?.removeEventListener('click', handleEditorClick);
-      editorRoot?.removeEventListener('dragstart', handleDragStart);
-    };
+    return () => editorRoot?.removeEventListener('click', handleEditorClick);
   }, [showForm]);
 
   const startResizing = (e: React.MouseEvent) => {
@@ -289,12 +255,6 @@ const AdminPage: React.FC = () => {
       reader.onloadend = async () => {
         const originalBase64 = reader.result as string;
         const compressed = await compressImage(originalBase64, 1200, 1200, 0.7);
-        const size = new Blob([compressed]).size;
-        
-        if (size > 350000) {
-          alert("Imagem de capa excede o limite de 350KB.");
-          return;
-        }
         setFormData(prev => ({ ...prev, imageUrl: compressed }));
       };
       reader.readAsDataURL(file);
@@ -341,11 +301,6 @@ const AdminPage: React.FC = () => {
     e.preventDefault();
     if (!formData.title || !formData.content || !formData.imageUrl) {
       alert("Título, Conteúdo e Capa são obrigatórios.");
-      return;
-    }
-
-    if (currentPayloadSize > 1000000) {
-      alert("Este post é muito grande (excede 1MB). Remova ou diminua algumas imagens internas.");
       return;
     }
     
@@ -402,7 +357,7 @@ const AdminPage: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <header className="flex justify-between items-center mb-16">
           <div className="flex items-center gap-4">
-            <Link to="/" className="text-stone-400 hover:text-stone-800 transition-colors"><ArrowLeftIcon /></Link>
+            <Link to="/" className="text-stone-400 hover:text-stone-800 transition-colors"><ArrowLeft size={24} /></Link>
             <h1 className="text-4xl font-bold font-serif text-stone-800">Painel de Escrita</h1>
           </div>
           <div className="flex gap-4">
@@ -432,7 +387,7 @@ const AdminPage: React.FC = () => {
                 <div><label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">Resumo Curto (Excerpt)</label><textarea className="w-full p-4 bg-stone-50 border border-stone-100 rounded-2xl h-24 resize-none outline-none focus:border-[#7A8C7A] transition-colors" value={formData.excerpt} onChange={e => setFormData({...formData, excerpt: e.target.value})} /></div>
               </div>
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">Imagem de Capa (Será comprimida)</label>
+                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">Imagem de Capa</label>
                 <div className="relative group aspect-video bg-stone-50 border-2 border-dashed border-stone-100 rounded-[40px] overflow-hidden flex items-center justify-center">
                   {formData.imageUrl ? (
                     <><img src={formData.imageUrl} className="w-full h-full object-cover" alt="Capa" /><button type="button" onClick={() => setFormData({...formData, imageUrl: ''})} className="absolute bg-white text-red-500 p-3 rounded-full opacity-0 group-hover:opacity-100 shadow-lg transition-opacity"><X size={20}/></button></>
@@ -465,10 +420,6 @@ const AdminPage: React.FC = () => {
                       <div className="w-px h-5 bg-stone-100 self-center mx-1"></div>
                       <button type="button" onClick={() => {setSelectedImg(null); setResizerRect(null)}} className="p-2 hover:bg-red-50 text-red-400 rounded-full transition-colors"><X size={16} /></button>
                     </div>
-
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-[#22C55E] border-2 border-white rounded-full" style={{ transform: 'translate(-50%, -50%)' }} />
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#22C55E] border-2 border-white rounded-full" style={{ transform: 'translate(50%, -50%)' }} />
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#22C55E] border-2 border-white rounded-full" style={{ transform: 'translate(-50%, 50%)' }} />
                     <div className="absolute bottom-0 right-0 w-4 h-4 bg-[#22C55E] border-2 border-white rounded-full cursor-nwse-resize pointer-events-auto shadow-md hover:scale-125 transition-transform" style={{ transform: 'translate(50%, 50%)' }} onMouseDown={startResizing} />
                   </div>
                 )}
@@ -512,8 +463,6 @@ const AdminPage: React.FC = () => {
           user-select: none;
           -webkit-user-drag: none;
         }
-        .quill-wrapper .ql-editor img.ql-align-center { margin-left: auto !important; margin-right: auto !important; }
-        .quill-wrapper .ql-editor img.ql-align-right { margin-left: auto !important; }
       `}</style>
     </div>
   );

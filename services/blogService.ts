@@ -26,7 +26,7 @@ export interface BlogPost {
 
 const COLLECTION_NAME = "blog_posts";
 
-export const getPosts = async (): Promise<BlogPost[]> => {
+export async function getPosts(): Promise<BlogPost[]> {
   try {
     const q = query(collection(db, COLLECTION_NAME), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
@@ -38,9 +38,9 @@ export const getPosts = async (): Promise<BlogPost[]> => {
     console.error("Erro ao buscar posts:", error);
     return [];
   }
-};
+}
 
-export const getPostById = async (id: string): Promise<BlogPost | undefined> => {
+export async function getPostById(id: string): Promise<BlogPost | undefined> {
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
     const docSnap = await getDoc(docRef);
@@ -52,9 +52,9 @@ export const getPostById = async (id: string): Promise<BlogPost | undefined> => 
     console.error("Erro ao buscar post por ID:", error);
     return undefined;
   }
-};
+}
 
-export const savePost = async (post: Omit<BlogPost, 'id' | 'date'>) => {
+export async function savePost(post: Omit<BlogPost, 'id' | 'date'>) {
   try {
     const newPost = {
       ...post,
@@ -67,25 +67,24 @@ export const savePost = async (post: Omit<BlogPost, 'id' | 'date'>) => {
     console.error("Erro ao salvar post:", error);
     throw error;
   }
-};
+}
 
-export const updatePost = async (id: string, post: Partial<BlogPost>) => {
+export async function updatePost(id: string, post: Partial<BlogPost>) {
   try {
     const docRef = doc(db, COLLECTION_NAME, id);
-    // Removemos o ID do objeto de atualização para o Firestore não reclamar
     const { id: _, ...dataToUpdate } = post as any;
     await updateDoc(docRef, dataToUpdate);
   } catch (error) {
     console.error("Erro ao atualizar post:", error);
     throw error;
   }
-};
+}
 
-export const deletePost = async (id: string) => {
+export async function deletePost(id: string) {
   try {
     await deleteDoc(doc(db, COLLECTION_NAME, id));
   } catch (error) {
     console.error("Erro ao deletar post:", error);
     throw error;
   }
-};
+}
