@@ -1,47 +1,50 @@
 import React from 'react';
-import { Focus, Sparkles, Video } from 'lucide-react';
+
+const highlights = [
+  'Conteúdos pensados para cada momento da sua rotina',
+  'Desafios práticos para quando precisar de um novo impulso',
+  'Acompanhamento para ajustar sua rotina sem culpa e sem rigidez',
+];
 
 const HowItWorksSection: React.FC = () => (
   <section id="como-funciona" className="py-20 md:py-24 px-5 bg-white">
     <div className="max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center mb-16 md:mb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-start">
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 md:mb-8 leading-tight font-serif">
-            O que é o Mapeamento do Sentir
-          </h2>
-          <p className="text-lg md:text-xl text-stone-600 leading-relaxed mb-6">
-            Um processo em 4 módulos que estrutura sua vida emocional e prática de forma integrada.
+          <p className="text-[11px] uppercase tracking-[0.35em] text-[#D9A08B] font-semibold mb-4">
+            Por que mapeamento
           </p>
-          <p className="text-base md:text-lg text-stone-500 leading-relaxed italic border-l-4 border-[#D9A08B] pl-5 md:pl-6 py-2">
-            Você não precisa saber por onde começar. Você só precisa aparecer. O resto é guiado.
+          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 leading-tight font-serif">
+            Por que um Mapeamento e não um curso comum?
+          </h2>
+          <p className="text-lg md:text-xl text-stone-700 font-medium mb-6">A resposta é simples: constância.</p>
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed mb-4">
+            Criar uma rotina é só o começo. O verdadeiro desafio está em mantê-la, adaptá-la às mudanças da vida e
+            continuar evoluindo — e é exatamente nesse ponto que a maioria das pessoas se perde.
+          </p>
+          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+            O Mapeamento não é um curso que você assiste uma vez e deixa parado. É um processo guiado, com
+            acompanhamento individual, ferramentas práticas e direcionamento contínuo para cada fase da sua jornada.
           </p>
         </div>
-        <div className="bg-[#FDFCFB] p-8 md:p-10 rounded-3xl md:rounded-[40px] shadow-sm border border-stone-100">
-          <h3 className="text-xl md:text-2xl font-bold text-stone-800 mb-6 md:mb-8 text-center md:text-left">
-            O que você recebe:
-          </h3>
-          <ul className="space-y-5 md:space-y-6">
-            {[
-              { icon: <Video size={20} className="text-[#D9A08B]" />, text: '4 módulos com videoaulas objetivas' },
-              { icon: <Sparkles size={20} className="text-[#D9A08B]" />, text: 'Exercícios guiados de autorreflexão' },
-              { icon: <Focus size={20} className="text-[#D9A08B]" />, text: '4 sessões individuais (1 por módulo)' },
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-4 text-base md:text-lg text-stone-700">
-                <div className="p-2.5 md:p-3 bg-white rounded-xl md:rounded-2xl shadow-sm shrink-0">{item.icon}</div>
-                <span>{item.text}</span>
+
+        <div className="bg-[#FDF7F3] rounded-3xl md:rounded-[40px] border border-stone-200 p-7 md:p-10 shadow-sm">
+          <p className="text-stone-700 text-base md:text-lg mb-5">Aqui, você encontra:</p>
+
+          <ul className="space-y-4 md:space-y-5">
+            {highlights.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-stone-700 leading-relaxed">
+                <span className="text-lg md:text-xl leading-none mt-0.5">✔️</span>
+                <span className="text-base md:text-lg">{item}</span>
               </li>
             ))}
           </ul>
-        </div>
-      </div>
 
-      <div className="bg-[#7A8C7A] rounded-3xl md:rounded-[40px] p-10 md:p-20 text-center text-white relative overflow-hidden">
-        <h3 className="text-xl md:text-4xl font-bold max-w-4xl mx-auto leading-relaxed relative z-10 font-serif italic font-normal text-center">
-          “Você sai do emaranhado interno para um mapa claro do que te trava e do que te sustenta.”
-        </h3>
-        <p className="mt-6 md:mt-8 text-emerald-50 text-base md:text-xl font-light text-center">
-          Um plano possível para o seu próximo ciclo, alinhado ao seu ritmo real.
-        </p>
+          <div className="mt-7 md:mt-8 pt-6 border-t border-stone-200">
+            <p className="text-stone-700 text-base md:text-lg font-medium mb-2">Porque rotina não é sobre fazer perfeito.</p>
+            <p className="text-stone-600 text-base md:text-lg">É sobre continuar — mesmo quando a vida muda.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
