@@ -13,6 +13,7 @@ import InvestmentSection from './components/landing/InvestmentSection';
 import MappingIncludesSection from './components/landing/MappingIncludesSection';
 import ModulesSection from './components/landing/ModulesSection';
 import ProtocolSection from './components/landing/ProtocolSection';
+import RoutineMethodSection from './components/landing/RoutineMethodSection';
 
 const LandingPage: React.FC = () => {
   const results = [
@@ -34,6 +35,7 @@ const LandingPage: React.FC = () => {
       <AudienceSection />
       <ModulesSection />
       <MappingIncludesSection />
+      <RoutineMethodSection />
       <InstructorSection instructor={offer.instructor} />
       <InvestmentSection offer={offer} />
       <FinalSection results={results} whatsappLink={offer.whatsappLink} />
