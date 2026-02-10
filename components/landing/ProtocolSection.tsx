@@ -22,7 +22,12 @@ const ProtocolSection: React.FC = () => {
     const item = el.children[index] as HTMLElement | undefined;
     if (!item) return;
 
-    item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+    const centeredLeft = item.offsetLeft - (el.clientWidth - item.clientWidth) / 2;
+    const nextLeft = Math.max(0, Math.min(centeredLeft, maxScrollLeft));
+
+    el.scrollTo({ left: nextLeft, behavior: 'smooth' });
+
     if (updateState) {
       setActiveTheme(index);
     }
