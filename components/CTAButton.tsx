@@ -18,7 +18,7 @@ const CTAButton: React.FC<CTAButtonProps> = ({
   variant = 'primary',
   onClick
 }) => {
-  const content = label ?? children ?? 'Quero mudar minha rotina';
+  const content = label ?? children ?? 'Quero começar meu mapeamento';
   const baseStyles = "inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-semibold rounded-full whitespace-nowrap transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg";
   
   const variants = {
