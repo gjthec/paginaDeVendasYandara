@@ -20,7 +20,7 @@ const FinalSection: React.FC<FinalSectionProps> = ({ results, whatsappLink }) =>
       </p>
       <CTAButton
         variant="secondary"
-        className="w-full sm:w-auto scale-105 md:scale-125 mb-8 bg-[#F6F1E6] text-[#8A6455] hover:bg-[#EFE7D8]"
+        className="w-full sm:w-auto scale-105 md:scale-125 mb-8 !bg-[#F6F1E6] !text-[#8A6455] hover:!bg-[#EFE7D8]"
       />
       <div className="mt-8 text-center">
         <a
