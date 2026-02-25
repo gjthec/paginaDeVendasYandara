@@ -10,7 +10,7 @@ interface InvestmentSectionProps {
 
 const InvestmentSection: React.FC<InvestmentSectionProps> = ({ offer }) => (
   <section id="investimento" className="py-20 md:py-32 px-5 bg-white relative overflow-hidden">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7A8C7A]/20 rounded-full blur-[120px] -z-10" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7A8C7A] rounded-full blur-[120px] -z-10" />
 
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-12 md:mb-16">

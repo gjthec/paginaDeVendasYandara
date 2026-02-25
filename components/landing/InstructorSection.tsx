@@ -7,9 +7,9 @@ interface InstructorSectionProps {
 }
 
 const InstructorSection: React.FC<InstructorSectionProps> = ({ instructor }) => (
-  <section className="py-20 md:py-24 px-5 bg-[#7A8C7A]/20">
+  <section className="py-20 md:py-24 px-5 bg-[#7A8C7A]">
     <div className="max-w-5xl mx-auto bg-white rounded-3xl md:rounded-[40px] overflow-hidden shadow-sm flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 bg-[#7A8C7A]/20">
+      <div className="w-full md:w-2/5 bg-[#7A8C7A]">
         <img
           src={instructor.photoUrl}
           alt={instructor.name}
