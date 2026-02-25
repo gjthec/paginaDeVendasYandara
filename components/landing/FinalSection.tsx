@@ -12,7 +12,7 @@ interface FinalSectionProps {
 }
 
 const FinalSection: React.FC<FinalSectionProps> = ({ results, whatsappLink }) => (
-  <section className="py-24 md:py-32 px-5 bg-[#D9A08B] text-white text-center">
+  <section className="py-24 md:py-32 px-5 bg-[#7A8C7A] text-white text-center">
     <div className="max-w-3xl mx-auto text-center">
       <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2 text-center">Pronta para começar?</h2>
       <p className="text-lg md:text-2xl text-emerald-50 mb-10 md:mb-12 leading-relaxed font-light px-4 text-center">
