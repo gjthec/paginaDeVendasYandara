@@ -12,13 +12,16 @@ interface FinalSectionProps {
 }
 
 const FinalSection: React.FC<FinalSectionProps> = ({ results, whatsappLink }) => (
-  <section className="py-24 md:py-32 px-5 bg-[#7A8C7A] text-white text-center">
+  <section className="py-24 md:py-32 px-5 bg-[#D9A08B] text-white text-center">
     <div className="max-w-3xl mx-auto text-center">
       <h2 className="text-3xl md:text-5xl font-bold mb-8 font-serif italic px-2 text-center">Pronta para começar?</h2>
       <p className="text-lg md:text-2xl text-emerald-50 mb-10 md:mb-12 leading-relaxed font-light px-4 text-center">
         Recuperar sua clareza interna é recuperar sua vida. Escolha com mais calma, firmeza e menos confusão.
       </p>
-      <CTAButton variant="secondary" className="w-full sm:w-auto scale-105 md:scale-125 mb-8" />
+      <CTAButton
+        variant="secondary"
+        className="w-full sm:w-auto scale-105 md:scale-125 mb-8 bg-[#F6F1E6] text-[#8A6455] hover:bg-[#EFE7D8]"
+      />
       <div className="mt-8 text-center">
         <a
           href={whatsappLink}
