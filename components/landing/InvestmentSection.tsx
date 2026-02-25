@@ -24,7 +24,7 @@ const InvestmentSection: React.FC<InvestmentSectionProps> = ({ offer }) => (
       <div className="max-w-4xl mx-auto relative">
         <div className="bg-white rounded-3xl md:rounded-[50px] shadow-2xl overflow-hidden border-4 border-[#7A8C7A]/10 flex flex-col md:flex-row relative z-10">
           <div className="p-10 md:p-16 flex-1 flex flex-col justify-center items-center text-center bg-[#7A8C7A] text-white">
-            <p className="text-emerald-100 uppercase tracking-widest text-[10px] md:text-xs font-bold mb-6 border-b border-white/20 pb-2">
+            <p className="text-emerald-100 uppercase tracking-widest text-[10px] md:text-xs font-bold mb-6 border-b border-white pb-2">
               O seu custo semanal
             </p>
             <div className="mb-8">

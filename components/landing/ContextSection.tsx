@@ -44,7 +44,7 @@ const ContextSection: React.FC = () => (
         <div className="bg-white rounded-3xl md:rounded-[40px] p-8 md:p-10 border border-stone-100 shadow-sm">
           <p className="text-[#D9A08B] font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4">Contexto real</p>
 
-          <div className="rounded-2xl bg-[#7A8C7A] border border-[#7A8C7A]/20 p-6 md:p-7">
+          <div className="rounded-2xl bg-[#7A8C7A] border border-[#7A8C7A] p-6 md:p-7">
             <p className="text-stone-700 text-base md:text-lg leading-relaxed">
               Dados do <span className="font-bold">IBGE</span> mostram que mulheres dedicam, em média,{' '}
               <span className="font-bold">mais de 21 horas semanais</span> aos cuidados e tarefas domésticas —{' '}
