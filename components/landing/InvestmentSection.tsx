@@ -67,7 +67,7 @@ const InvestmentSection: React.FC<InvestmentSectionProps> = ({ offer }) => (
                   </p>
                 </div>
               </div>
-              <CTAButton className="w-full py-5 text-lg shadow-xl !bg-[#F6F1E6] !text-[#8A6455] hover:!bg-[#EFE7D8]" />
+              <CTAButton className="w-full py-5 text-lg shadow-xl" />
               <div className="flex flex-col gap-2">
                 <p className="text-stone-500 text-xs font-medium">{formatValue(offer.paymentMethods)}</p>
                 <div className="flex items-center justify-center gap-2 text-[#7A8C7A] text-xs font-bold">
