@@ -25,7 +25,7 @@ const LandingPage: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen pb-20 lg:pb-0 bg-[#7A8C7A]">
+    <main className="min-h-screen pb-20 lg:pb-0 bg-[#687868]">
       <Header />
 
       <HeroSection whatsappLink={offer.whatsappLink} />
