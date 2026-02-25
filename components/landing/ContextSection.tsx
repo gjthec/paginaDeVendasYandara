@@ -62,7 +62,7 @@ const ContextSection: React.FC = () => (
           </div>
 
           <div className="mt-8">
-            <CTAButton className="w-full" label="Quero mudar minha rotina" />
+            <CTAButton className="w-full" label="Quero começar meu mapeamento" />
             <p className="mt-3 text-stone-500 text-xs text-center">Um caminho possível, sem rigidez e sem sobrecarga.</p>
           </div>
         </div>

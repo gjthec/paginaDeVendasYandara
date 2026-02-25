@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ whatsappLink }) => (
       </p>
 
       <div className="flex flex-col items-center gap-6 px-4">
-        <CTAButton className="w-full sm:w-auto scale-105 md:scale-110" label="Quero mudar minha rotina" />
+        <CTAButton className="w-full sm:w-auto scale-105 md:scale-110" label="Quero começar meu mapeamento" />
         <div className="flex flex-col items-center gap-2">
           <p className="text-stone-400 text-xs font-medium uppercase tracking-widest">Acesso total por 12 meses</p>
           <a

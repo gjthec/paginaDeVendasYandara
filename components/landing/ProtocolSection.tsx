@@ -64,7 +64,7 @@ const ProtocolSection: React.FC = () => {
           </p>
 
           <div className="max-w-md">
-            <CTAButton className="w-full sm:w-auto" label="Quero mudar minha rotina" />
+            <CTAButton className="w-full sm:w-auto" label="Quero começar meu mapeamento" />
             <p className="mt-3 text-stone-500 text-xs text-center sm:text-left">
               Um método possível, sem rigidez e sem sobrecarga.
             </p>
