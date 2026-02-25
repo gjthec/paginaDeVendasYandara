@@ -10,7 +10,7 @@ const outcomes = [
 ];
 
 const RoutineMethodSection: React.FC = () => (
-  <section className="py-20 md:py-24 px-5 bg-[#FDFCFB]">
+  <section className="py-20 md:py-24 px-5 bg-[#D5E3D5]">
     <div className="max-w-6xl mx-auto">
       <div className="bg-white border border-stone-200 rounded-3xl md:rounded-[40px] p-7 md:p-12 shadow-sm">
         <p className="text-[11px] uppercase tracking-[0.35em] text-[#D9A08B] font-semibold mb-4">Resultados do método</p>
@@ -24,7 +24,7 @@ const RoutineMethodSection: React.FC = () => (
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {outcomes.map((item) => (
-            <li key={item} className="flex items-start gap-3 rounded-2xl border border-stone-100 bg-[#FCFAF8] p-4 md:p-5">
+            <li key={item} className="flex items-start gap-3 rounded-2xl border border-stone-100 bg-[#E0EDE0] p-4 md:p-5">
               <span className="text-[#7A8C7A] text-lg leading-none mt-0.5">•</span>
               <span className="text-stone-700 text-base md:text-lg leading-relaxed">{item}</span>
             </li>

@@ -4,10 +4,10 @@ import CTAButton from '../CTAButton';
 const ProtocolSection: React.FC = () => {
   const themes = useMemo(
     () => [
-      { title: 'Organização', image: '/themes/organizacao.jpg' },
-      { title: 'Procrastinação', image: '/themes/procrastinacao.jpg' },
-      { title: 'Desânimo', image: '/themes/desanimo.jpg' },
-      { title: 'Planejamento', image: '/themes/planejamento.jpg' },
+      { title: 'Organização', image: '/themes/organizacao2.jpg' },
+      { title: 'Procrastinação', image: '/themes/procrastinacao2.jpg' },
+      { title: 'Desânimo', image: '/themes/desanimo2.jpg' },
+      { title: 'Planejamento', image: '/themes/planejamento2.jpg' },
     ],
     []
   );
@@ -64,7 +64,7 @@ const ProtocolSection: React.FC = () => {
           </p>
 
           <div className="max-w-md">
-            <CTAButton className="w-full sm:w-auto" label="Quero mudar minha rotina" />
+            <CTAButton className="w-full sm:w-auto" label="Quero começar meu mapeamento" />
             <p className="mt-3 text-stone-500 text-xs text-center sm:text-left">
               Um método possível, sem rigidez e sem sobrecarga.
             </p>
@@ -106,24 +106,14 @@ const ProtocolSection: React.FC = () => {
               {themes.map((t) => (
                 <div
                   key={t.title}
-                  className="snap-center shrink-0 w-[78%] sm:w-[52%] lg:w-[32%] h-44 md:h-56 rounded-2xl md:rounded-3xl overflow-hidden relative shadow-sm border border-stone-100 bg-stone-200"
-                  style={
-                    t.image
-                      ? {
-                          backgroundImage: `url(${t.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }
-                      : undefined
-                  }
+                  className="snap-center shrink-0 w-[68%] sm:w-[44%] lg:w-[26%] aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm"
                 >
-                  <div className="absolute inset-0 bg-black/45" />
-
-                  <div className="absolute inset-0 p-6 md:p-7 flex items-end">
-                    <h3 className="text-white text-3xl md:text-4xl font-bold leading-none tracking-tight drop-shadow-sm">
-                      {t.title}
-                    </h3>
-                  </div>
+                  <img
+                    src={t.image}
+                    alt={t.title}
+                    className="w-full h-full rounded-xl md:rounded-2xl object-contain"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
