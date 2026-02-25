@@ -41,14 +41,14 @@ const FinalSection: React.FC<FinalSectionProps> = ({ results, whatsappLink }) =>
         {results.map((res, i) => (
           <div key={i} className="flex flex-col gap-3">
             <div className="flex items-center justify-between gap-4">
-              <div className="bg-[#C3D9C3] text-[#2D352D] px-4 py-2 rounded-xl text-xs md:text-sm font-bold shadow-sm whitespace-nowrap">
+              <div className="bg-[#7A8C7A] text-[#2D352D] px-4 py-2 rounded-xl text-xs md:text-sm font-bold shadow-sm whitespace-nowrap">
                 {res.label}
               </div>
               <span className="text-white font-bold text-sm md:text-base opacity-90">{res.value}</span>
             </div>
             <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#C3D9C3] rounded-full transition-all duration-1000 ease-out"
+                className="h-full bg-[#7A8C7A] rounded-full transition-all duration-1000 ease-out"
                 style={{ width: res.value }}
                 aria-label={`Progresso de ${res.label}: ${res.value}`}
               />
