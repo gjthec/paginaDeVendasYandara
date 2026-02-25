@@ -31,10 +31,10 @@ const MappingIncludesSection: React.FC = () => {
           <p className="text-[11px] uppercase tracking-[0.35em] text-[#D9A08B] font-semibold mb-4">
             Tudo o que você recebe
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 font-serif">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-serif">
             Ao entrar no Mapeamento, você tem tudo para construir uma rotina possível.
           </h2>
-          <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+          <p className="text-base md:text-lg text-emerald-50 leading-relaxed">
             Conteúdos e ferramentas para sustentar uma rotina constante — de forma leve, prática e alinhada à sua
             realidade.
           </p>

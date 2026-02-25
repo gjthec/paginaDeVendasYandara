@@ -5,10 +5,10 @@ const AudienceSection: React.FC = () => (
   <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#7A8C7A]">
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12 md:mb-16">
-        <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center font-serif">
+        <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 px-2 text-center font-serif">
           Este processo é para pessoas reais, ocupadas e humanas.
         </h2>
-        <p className="text-lg md:text-xl text-stone-600 text-center">Em especial para quem:</p>
+        <p className="text-lg md:text-xl text-emerald-50 text-center">Em especial para quem:</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">

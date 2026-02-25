@@ -7,15 +7,15 @@ const ContextSection: React.FC = () => (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-6 leading-tight font-serif">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-serif">
             Cansada de começar rotinas que não duram?
           </h2>
 
-          <p className="text-lg md:text-xl text-stone-600 leading-relaxed mb-6">
+          <p className="text-lg md:text-xl text-emerald-50 leading-relaxed mb-6">
             A procrastinação, a falta de planejamento e o desânimo têm te impedido de avançar.
           </p>
 
-          <p className="text-base md:text-lg text-stone-500 leading-relaxed mb-8">
+          <p className="text-base md:text-lg text-emerald-100/90 leading-relaxed mb-8">
             A dificuldade de sustentar uma rotina equilibrada muitas vezes está ligada a fatores estruturais — não a
             “falta de força”.
           </p>
@@ -44,19 +44,19 @@ const ContextSection: React.FC = () => (
         <div className="bg-white rounded-3xl md:rounded-[40px] p-8 md:p-10 border border-stone-100 shadow-sm">
           <p className="text-[#D9A08B] font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4">Contexto real</p>
 
-          <div className="rounded-2xl bg-[#7A8C7A] border border-[#7A8C7A] p-6 md:p-7">
-            <p className="text-stone-700 text-base md:text-lg leading-relaxed">
+          <div className="rounded-2xl bg-[#7A8C7A] border border-[#7A8C7A] p-6 md:p-7 text-white">
+            <p className="text-white text-base md:text-lg leading-relaxed">
               Dados do <span className="font-bold">IBGE</span> mostram que mulheres dedicam, em média,{' '}
               <span className="font-bold">mais de 21 horas semanais</span> aos cuidados e tarefas domésticas —{' '}
               <span className="font-bold">quase o dobro</span> do tempo dos homens.
             </p>
 
-            <p className="text-stone-500 text-sm md:text-base leading-relaxed mt-4">
+            <p className="text-emerald-100 text-sm md:text-base leading-relaxed mt-4">
               Quando somamos trabalho, responsabilidades invisíveis e autocobrança constante, fica mais fácil entender
               por que manter constância parece tão difícil.
             </p>
 
-            <p className="mt-6 text-stone-400 text-[9px] md:text-[10px] uppercase tracking-widest font-medium">
+            <p className="mt-6 text-emerald-100/70 text-[9px] md:text-[10px] uppercase tracking-widest font-medium">
               Nota: dado citado conforme referência do texto
             </p>
           </div>
