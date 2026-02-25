@@ -25,7 +25,7 @@ const MappingIncludesSection: React.FC = () => {
   ];
 
   return (
-    <section id="conteudo-mapeamento" className="py-20 md:py-24 px-5 bg-[#E6F0E6]">
+    <section id="conteudo-mapeamento" className="py-20 md:py-24 px-5 bg-[#D1E0D1]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.35em] text-[#D9A08B] font-semibold mb-4">

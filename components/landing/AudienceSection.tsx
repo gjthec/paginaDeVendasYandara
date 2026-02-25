@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
 const AudienceSection: React.FC = () => (
-  <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#E2ECE2]">
+  <section id="para-quem" className="py-20 md:py-24 px-5 bg-[#C9DBC9]">
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12 md:mb-16">
         <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-6 px-2 text-center font-serif">
