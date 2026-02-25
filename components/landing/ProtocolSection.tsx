@@ -4,10 +4,10 @@ import CTAButton from '../CTAButton';
 const ProtocolSection: React.FC = () => {
   const themes = useMemo(
     () => [
-      { title: 'Organização', image: '/themes/organizacao.jpg' },
-      { title: 'Procrastinação', image: '/themes/procrastinacao.jpg' },
-      { title: 'Desânimo', image: '/themes/desanimo.jpg' },
-      { title: 'Planejamento', image: '/themes/planejamento.jpg' },
+      { title: 'Organização', image: '/themes/organizacao2.jpg' },
+      { title: 'Procrastinação', image: '/themes/procrastinacao2.jpg' },
+      { title: 'Desânimo', image: '/themes/desanimo2.jpg' },
+      { title: 'Planejamento', image: '/themes/planejamento2.jpg' },
     ],
     []
   );
