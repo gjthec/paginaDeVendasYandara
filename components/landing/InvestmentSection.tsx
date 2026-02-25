@@ -10,7 +10,7 @@ interface InvestmentSectionProps {
 
 const InvestmentSection: React.FC<InvestmentSectionProps> = ({ offer }) => (
   <section id="investimento" className="py-20 md:py-32 px-5 bg-white relative overflow-hidden">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-50/30 rounded-full blur-[120px] -z-10" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#7A8C7A]/20 rounded-full blur-[120px] -z-10" />
 
     <div className="max-w-5xl mx-auto">
       <div className="text-center mb-12 md:mb-16">
@@ -67,7 +67,7 @@ const InvestmentSection: React.FC<InvestmentSectionProps> = ({ offer }) => (
                   </p>
                 </div>
               </div>
-              <CTAButton className="w-full py-5 text-lg shadow-xl" />
+              <CTAButton className="w-full py-5 text-lg shadow-xl bg-[#F6F1E6] text-[#8A6455] hover:bg-[#EFE7D8]" />
               <div className="flex flex-col gap-2">
                 <p className="text-stone-500 text-xs font-medium">{formatValue(offer.paymentMethods)}</p>
                 <div className="flex items-center justify-center gap-2 text-[#7A8C7A] text-xs font-bold">
