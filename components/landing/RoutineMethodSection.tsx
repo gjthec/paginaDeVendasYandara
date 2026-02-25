@@ -25,8 +25,8 @@ const RoutineMethodSection: React.FC = () => (
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {outcomes.map((item) => (
             <li key={item} className="flex items-start gap-3 rounded-2xl border border-stone-100 bg-[#7A8C7A] p-4 md:p-5">
-              <span className="text-[#7A8C7A] text-lg leading-none mt-0.5">•</span>
-              <span className="text-stone-700 text-base md:text-lg leading-relaxed">{item}</span>
+              <span className="text-white text-lg leading-none mt-0.5">•</span>
+              <span className="text-white text-base md:text-lg leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>

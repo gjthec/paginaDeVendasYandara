@@ -28,12 +28,12 @@ const HowItWorksSection: React.FC = () => (
           </p>
         </div>
 
-        <div className="bg-[#7A8C7A] rounded-3xl md:rounded-[40px] border border-stone-200 p-7 md:p-10 shadow-sm">
-          <p className="text-stone-700 text-base md:text-lg mb-5">Aqui, você encontra:</p>
+        <div className="bg-[#7A8C7A] rounded-3xl md:rounded-[40px] border border-stone-200 p-7 md:p-10 shadow-sm text-white">
+          <p className="text-white text-base md:text-lg mb-5">Aqui, você encontra:</p>
 
           <ul className="space-y-4 md:space-y-5">
             {highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-stone-700 leading-relaxed">
+              <li key={item} className="flex items-start gap-3 text-white leading-relaxed">
                 <span className="text-lg md:text-xl leading-none mt-0.5">✔️</span>
                 <span className="text-base md:text-lg">{item}</span>
               </li>
@@ -41,8 +41,8 @@ const HowItWorksSection: React.FC = () => (
           </ul>
 
           <div className="mt-7 md:mt-8 pt-6 border-t border-stone-200">
-            <p className="text-stone-700 text-base md:text-lg font-medium mb-2">Porque rotina não é sobre fazer perfeito.</p>
-            <p className="text-stone-600 text-base md:text-lg">É sobre continuar — mesmo quando a vida muda.</p>
+            <p className="text-white text-base md:text-lg font-medium mb-2">Porque rotina não é sobre fazer perfeito.</p>
+            <p className="text-emerald-100 text-base md:text-lg">É sobre continuar — mesmo quando a vida muda.</p>
           </div>
         </div>
       </div>
