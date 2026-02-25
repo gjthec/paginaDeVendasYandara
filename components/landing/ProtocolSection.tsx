@@ -106,7 +106,7 @@ const ProtocolSection: React.FC = () => {
               {themes.map((t) => (
                 <div
                   key={t.title}
-                  className="snap-center shrink-0 w-[78%] sm:w-[52%] lg:w-[32%] h-44 md:h-56 rounded-2xl md:rounded-3xl overflow-hidden shadow-sm border border-stone-200 bg-white p-1"
+                  className="snap-center shrink-0 w-[68%] sm:w-[44%] lg:w-[26%] aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm"
                 >
                   <img
                     src={t.image}
