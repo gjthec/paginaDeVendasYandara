@@ -9,7 +9,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ whatsappLink }) => (
   <section className="relative pt-28 pb-16 md:pt-48 md:pb-32 px-5 overflow-hidden">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-30">
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-emerald-100 rounded-full blur-[80px] md:blur-[100px]" />
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-[#7A8C7A] rounded-full blur-[80px] md:blur-[100px]" />
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-96 md:h-96 bg-orange-50 rounded-full blur-[80px] md:blur-[100px]" />
     </div>
 
