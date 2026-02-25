@@ -28,7 +28,7 @@ const HowItWorksSection: React.FC = () => (
           </p>
         </div>
 
-        <div className="bg-[#FDF7F3] rounded-3xl md:rounded-[40px] border border-stone-200 p-7 md:p-10 shadow-sm">
+        <div className="bg-[#E6F0E6] rounded-3xl md:rounded-[40px] border border-stone-200 p-7 md:p-10 shadow-sm">
           <p className="text-stone-700 text-base md:text-lg mb-5">Aqui, você encontra:</p>
 
           <ul className="space-y-4 md:space-y-5">

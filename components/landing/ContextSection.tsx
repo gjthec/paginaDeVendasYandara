@@ -3,7 +3,7 @@ import { CheckCircle2 } from 'lucide-react';
 import CTAButton from '../CTAButton';
 
 const ContextSection: React.FC = () => (
-  <section id="contexto" className="py-20 md:py-24 px-5 bg-[#F8F7F4]">
+  <section id="contexto" className="py-20 md:py-24 px-5 bg-[#E2ECE2]">
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
         <div>
@@ -42,9 +42,9 @@ const ContextSection: React.FC = () => (
         </div>
 
         <div className="bg-white rounded-3xl md:rounded-[40px] p-8 md:p-10 border border-stone-100 shadow-sm">
-          <p className="text-[#D9A08B] font-bold uppercase tracking-widest text-[10px] md:text-xs mb-4">Contexto real</p>
+          <p className="text-[#D9A08B] font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4">Contexto real</p>
 
-          <div className="rounded-2xl bg-[#FDFCFB] border border-stone-100 p-6 md:p-7">
+          <div className="rounded-2xl bg-[#EAF2EA] border border-stone-100 p-6 md:p-7">
             <p className="text-stone-700 text-base md:text-lg leading-relaxed">
               Dados do <span className="font-bold">IBGE</span> mostram que mulheres dedicam, em média,{' '}
               <span className="font-bold">mais de 21 horas semanais</span> aos cuidados e tarefas domésticas —{' '}
@@ -56,13 +56,13 @@ const ContextSection: React.FC = () => (
               por que manter constância parece tão difícil.
             </p>
 
-            <p className="mt-6 text-stone-400 text-[10px] md:text-xs uppercase tracking-widest font-medium">
+            <p className="mt-6 text-stone-400 text-[9px] md:text-[10px] uppercase tracking-widest font-medium">
               Nota: dado citado conforme referência do texto
             </p>
           </div>
 
           <div className="mt-8">
-            <CTAButton className="w-full" label="Quero mudar minha rotina" />
+            <CTAButton className="w-full" label="Quero começar meu mapeamento" />
             <p className="mt-3 text-stone-500 text-xs text-center">Um caminho possível, sem rigidez e sem sobrecarga.</p>
           </div>
         </div>

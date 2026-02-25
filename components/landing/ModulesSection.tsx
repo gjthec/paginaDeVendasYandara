@@ -2,7 +2,7 @@ import React from 'react';
 import ModuleCard from '../ModuleCard';
 
 const ModulesSection: React.FC = () => (
-  <section id="modulos" className="py-20 md:py-24 px-5 bg-[#FDFCFB]">
+  <section id="modulos" className="py-20 md:py-24 px-5 bg-[#EAF2EA]">
     <div className="max-w-6xl mx-auto">
       <h2 className="text-3xl md:text-5xl font-bold text-stone-800 mb-12 md:mb-16 text-center font-serif">
         Os 4 módulos

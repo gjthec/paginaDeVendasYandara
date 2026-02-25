@@ -7,10 +7,14 @@ interface InstructorSectionProps {
 }
 
 const InstructorSection: React.FC<InstructorSectionProps> = ({ instructor }) => (
-  <section className="py-20 md:py-24 px-5 bg-stone-100">
+  <section className="py-20 md:py-24 px-5 bg-[#DDE9DD]">
     <div className="max-w-5xl mx-auto bg-white rounded-3xl md:rounded-[40px] overflow-hidden shadow-sm flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 h-64 md:h-auto">
-        <img src={instructor.photoUrl} alt={instructor.name} className="w-full h-full object-cover" />
+      <div className="w-full md:w-2/5 bg-[#DDE9DD]">
+        <img
+          src={instructor.photoUrl}
+          alt={instructor.name}
+          className="w-full h-auto md:h-full object-contain md:object-cover"
+        />
       </div>
       <div className="w-full md:w-3/5 p-8 md:p-16 flex flex-col justify-center">
         <span className="text-[#D9A08B] font-bold uppercase tracking-widest text-xs mb-3">Quem conduz</span>

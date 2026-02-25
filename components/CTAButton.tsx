@@ -4,6 +4,7 @@ import { offer } from '../config/offer';
 
 interface CTAButtonProps {
   className?: string;
+  label?: string;
   children?: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
   // Added onClick prop to handle click events (e.g., closing mobile menu)
@@ -12,11 +13,13 @@ interface CTAButtonProps {
 
 const CTAButton: React.FC<CTAButtonProps> = ({ 
   className = "", 
-  children = "Quero começar meu mapeamento",
+  label,
+  children,
   variant = 'primary',
   onClick
 }) => {
-  const baseStyles = "inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg";
+  const content = label ?? children ?? 'Quero começar meu mapeamento';
+  const baseStyles = "inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-semibold rounded-full whitespace-nowrap transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg";
   
   const variants = {
     primary: "bg-[#7A8C7A] text-white hover:bg-[#687868] shadow-emerald-900/10",
@@ -28,10 +31,10 @@ const CTAButton: React.FC<CTAButtonProps> = ({
     <a 
       href={offer.purchaseLink} 
       className={`${baseStyles} ${variants[variant]} ${className}`}
-      aria-label={String(children)}
+      aria-label={typeof content === 'string' ? content : 'Call to action'}
       onClick={onClick}
     >
-      {children}
+      {content}
     </a>
   );
 };
